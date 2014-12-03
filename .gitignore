@@ -1,0 +1,7 @@
+/app/config/parameters.yml
+/bin/*
+!bin/console
+!bin/symfony_requirements
+/var/
+/vendor/
+/web/bundles/
