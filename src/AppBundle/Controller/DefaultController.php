@@ -15,6 +15,6 @@ class DefaultController extends Controller
      */
     public function homepageAction()
     {
-        return $this->render('default/homepage.html.twig');
+        return $this->render('Default/homepage.html.twig');
     }
 }
