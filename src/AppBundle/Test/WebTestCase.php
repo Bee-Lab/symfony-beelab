@@ -40,7 +40,7 @@ abstract class WebTestCase extends SymfonyWebTestCase
     {
         $environment = 'test';
         if (getenv('TEST_TOKEN') !== false) {
-            $environment = 'test' . getenv('TEST_TOKEN');
+            $environment = 'test'.getenv('TEST_TOKEN');
         }
         if (empty($this->container)) {
             $kernel = static::createKernel(['environment' => $environment]);
@@ -79,13 +79,13 @@ abstract class WebTestCase extends SymfonyWebTestCase
         if (is_null($client)) {
             $client = $this->client;
         }
-        $file = $this->container->get('kernel')->getRootDir() . '/../web/test.html';
-        $url = $this->container->getParameter('domain') . '/test.html';
+        $file = $this->container->get('kernel')->getRootDir().'/../web/test.html';
+        $url = $this->container->getParameter('domain').'/test.html';
         if (false !== $profile = $client->getProfile()) {
-            $url .= '?' . $profile->getToken();
+            $url .= '?'.$profile->getToken();
         }
         file_put_contents($file, $client->getResponse()->getContent());
-        $process = new Process($browser . ' ' . $url);
+        $process = new Process($browser.' '.$url);
         $process->start();
         sleep(3);
         if ($delete) {
@@ -106,7 +106,7 @@ abstract class WebTestCase extends SymfonyWebTestCase
         $user = $userManager->find($username);
         $token = new UsernamePasswordToken($user, null, $firewall, $user->getRoles());
         $session = $this->container->get('session');
-        $session->set('_security_' . $firewall, serialize($token));
+        $session->set('_security_'.$firewall, serialize($token));
         $session->save();
         $cookie = new Cookie($session->getName(), $session->getId());
         $this->client->getCookieJar()->set($cookie);
@@ -120,12 +120,12 @@ abstract class WebTestCase extends SymfonyWebTestCase
      */
     protected function getImageFile($file = 0)
     {
-        $dir = __DIR__ . '/../../../app/Resources/public/images/';
+        $dir = __DIR__.'/../../../app/Resources/public/images/';
         if ($file == 0) {
-            $path = $dir . 'image_for_test.jpeg';
+            $path = $dir.'image_for_test.jpeg';
         } else {
-            copy($dir . '/image_for_test.jpeg', $dir . '/image_for_test' . $file .'.jpeg');
-            $path = $dir . '/image_for_test' . $file . '.jpeg';
+            copy($dir.'/image_for_test.jpeg', $dir.'/image_for_test'.$file.'.jpeg');
+            $path = $dir.'/image_for_test'.$file.'.jpeg';
         }
 
         return new UploadedFile($path, 'photo.jpeg', 'image/jpeg', 12342);
@@ -142,7 +142,7 @@ abstract class WebTestCase extends SymfonyWebTestCase
         $this->em->getConnection()->exec('SET foreign_key_checks = 0');
         $loader = new Loader($this->container);
         foreach ($fixtures as $fixture) {
-            $this->loadFixtureClass($loader, $namespace . $fixture);
+            $this->loadFixtureClass($loader, $namespace.$fixture);
         }
         $executor = new ORMExecutor($this->em, new ORMPurger());
         $executor->execute($loader->getFixtures());
@@ -176,7 +176,7 @@ abstract class WebTestCase extends SymfonyWebTestCase
      */
     protected function getFormValue(Crawler $crawler, $fieldId)
     {
-        return $crawler->filter('#' . $fieldId)->attr('value');
+        return $crawler->filter('#'.$fieldId)->attr('value');
     }
 
     /**
