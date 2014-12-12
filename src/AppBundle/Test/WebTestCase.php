@@ -40,7 +40,7 @@ abstract class WebTestCase extends SymfonyWebTestCase
     {
         $environment = 'test';
         if (getenv('TEST_TOKEN') !== false) {
-            $environment = 'test'.getenv('TEST_TOKEN');
+            $environment = 'test' . getenv('TEST_TOKEN');
         }
         if (empty($this->container)) {
             $kernel = static::createKernel(['environment' => $environment]);
@@ -79,13 +79,13 @@ abstract class WebTestCase extends SymfonyWebTestCase
         if (is_null($client)) {
             $client = $this->client;
         }
-        $file = $this->container->get('kernel')->getRootDir().'/../web/test.html';
-        $url = $this->container->getParameter('domain').'/test.html';
+        $file = $this->container->get('kernel')->getRootDir() . '/../web/test.html';
+        $url = $this->container->getParameter('domain') . '/test.html';
         if (false !== $profile = $client->getProfile()) {
-            $url .= '?'.$profile->getToken();
+            $url .= '?' . $profile->getToken();
         }
         file_put_contents($file, $client->getResponse()->getContent());
-        $process = new Process($browser.' '.$url);
+        $process = new Process($browser . ' ' . $url);
         $process->start();
         sleep(3);
         if ($delete) {
@@ -106,29 +106,52 @@ abstract class WebTestCase extends SymfonyWebTestCase
         $user = $userManager->find($username);
         $token = new UsernamePasswordToken($user, null, $firewall, $user->getRoles());
         $session = $this->container->get('session');
-        $session->set('_security_'.$firewall, serialize($token));
+        $session->set('_security_' . $firewall, serialize($token));
         $session->save();
         $cookie = new Cookie($session->getName(), $session->getId());
         $this->client->getCookieJar()->set($cookie);
     }
 
     /**
-     * Get a file to be used in a form
+     * Get an image file to be used in a form
      *
      * @param  int          $file
      * @return UploadedFile
      */
     protected function getImageFile($file = 0)
     {
-        $dir = __DIR__.'/../../../app/Resources/public/images/';
-        if ($file == 0) {
-            $path = $dir.'image_for_test.jpeg';
-        } else {
-            copy($dir.'/image_for_test.jpeg', $dir.'/image_for_test'.$file.'.jpeg');
-            $path = $dir.'/image_for_test'.$file.'.jpeg';
-        }
+        $img = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVQI12P4//8/AAX+Av7czFnnAAAAAElFTkSuQmCC';
+        $name = 'img_' . $file . '.png';
+        $path = tempnam(sys_get_temp_dir(), 'sf_test_') . $name;
+        file_put_contents($path, base64_decode($img));
 
-        return new UploadedFile($path, 'photo.jpeg', 'image/jpeg', 12342);
+        return new UploadedFile($path, $name, 'image/png', 1234);
+    }
+
+    /**
+     * Get a pdf file to be used in a form
+     *
+     * @param  int          $file
+     * @return UploadedFile
+     */
+    protected function getPdfFile($file = 0)
+    {
+        $pdf = <<<EOF
+JVBERi0xLjEKJcKlwrHDqwoKMSAwIG9iagogIDw8IC9UeXBlIC9DYXRhbG9nCiAgICAgL1BhZ2VzIDIgMCBSCiAgPj4KZW5kb2JqCgoyIDAgb2JqCiAgP
+DwgL1R5cGUgL1BhZ2VzCiAgICAgL0tpZHMgWzMgMCBSXQogICAgIC9Db3VudCAxCiAgICAgL01lZGlhQm94IFswIDAgMzAwIDE0NF0KICA+PgplbmRvYm
+oKCjMgMCBvYmoKICA8PCAgL1R5cGUgL1BhZ2UKICAgICAgL1BhcmVudCAyIDAgUgogICAgICAvUmVzb3VyY2VzCiAgICAgICA8PCAvRm9udAogICAgICA
+gICAgIDw8IC9GMQogICAgICAgICAgICAgICA8PCAvVHlwZSAvRm9udAogICAgICAgICAgICAgICAgICAvU3VidHlwZSAvVHlwZTEKICAgICAgICAgICAg
+ICAgICAgL0Jhc2VGb250IC9UaW1lcy1Sb21hbgogICAgICAgICAgICAgICA+PgogICAgICAgICAgID4+CiAgICAgICA+PgogICAgICAvQ29udGVudHMgN
+CAwIFIKICA+PgplbmRvYmoKCjQgMCBvYmoKICA8PCAvTGVuZ3RoIDU1ID4+CnN0cmVhbQogIEJUCiAgICAvRjEgMTggVGYKICAgIDAgMCBUZAogICAgKE
+hlbGxvIFdvcmxkKSBUagogIEVUCmVuZHN0cmVhbQplbmRvYmoKCnhyZWYKMCA1CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDAxOCAwMDAwMCBuIAo
+wMDAwMDAwMDc3IDAwMDAwIG4gCjAwMDAwMDAxNzggMDAwMDAgbiAKMDAwMDAwMDQ1NyAwMDAwMCBuIAp0cmFpbGVyCiAgPDwgIC9Sb290IDEgMCBSCiAg
+ICAgIC9TaXplIDUKICA+PgpzdGFydHhyZWYKNTY1CiUlRU9GCg==
+EOF;
+        $name = 'pdf_' . $file . '.pdf';
+        $path = tempnam(sys_get_temp_dir(), 'sf_test_') . $name;
+        file_put_contents($path, base64_decode($pdf));
+
+        return new UploadedFile($path, $name, 'application/pdf', 1234);
     }
 
     /**
@@ -176,7 +199,7 @@ abstract class WebTestCase extends SymfonyWebTestCase
      */
     protected function getFormValue(Crawler $crawler, $fieldId)
     {
-        return $crawler->filter('#'.$fieldId)->attr('value');
+        return $crawler->filter('#' . $fieldId)->attr('value');
     }
 
     /**

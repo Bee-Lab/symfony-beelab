@@ -16,9 +16,9 @@ set :model_manager, "doctrine"
 set :use_composer,    true
 set :use_sudo,        false
 set :shared_files,    [app_path + "/config/parameters.yml"]
-set :shared_children, [app_path + "/../var/logs", web_path + "/uploads"]
+set :shared_children, ["var/logs", web_path + "/uploads"]
 
-set :writable_dirs,       [app_path + "/../var/cache", app_path + "/../var/logs", web_path + "/uploads"]
+set :writable_dirs,       ["var/cache", "var/logs", web_path + "/uploads"]
 set :webserver_user,      "www-data"
 set :permission_method,   :acl
 set :use_set_permissions, true
