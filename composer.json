@@ -29,6 +29,7 @@
         "sensio/distribution-bundle": "~3.0"
     },
     "require-dev": {
+        "beelab/test-bundle": "1.0.*",
         "sensio/generator-bundle": "~2.3",
         "incenteev/composer-parameter-handler": "~2.0",
         "phpunit/phpunit": "4.*"
