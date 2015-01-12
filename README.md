@@ -10,3 +10,9 @@ Then, replace the following contents:
 * replace "%customize%" with your project's name in ``build.xml``
 * replace "%customize%" with your project's repository name in ``app/config/deploy.rb``, ``app/config/deploy/staging.rb``,
   and ``app/config/production.rb``
+
+CI
+==
+
+There is a predefined ``build.xml`` file, that works with our current internal Jenkins configuration.
+Don't forget to ``git add -f var/.gitkeep``, because ``var`` directory is needed to detect directory configuration.

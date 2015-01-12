@@ -22,7 +22,6 @@
         <whitelist>
             <directory>../src</directory>
             <exclude>
-                <directory>../src/AppBundle/Resources</directory>
                 <directory>../src/AppBundle/Tests</directory>
             </exclude>
         </whitelist>
