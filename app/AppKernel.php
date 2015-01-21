@@ -1,7 +1,7 @@
 <?php
 
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
+use Symfony\Component\HttpKernel\Kernel;
 
 class AppKernel extends Kernel
 {
@@ -25,6 +25,8 @@ class AppKernel extends Kernel
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
             $bundles[] = new Beelab\TestBundle\BeelabTestBundle();
+        } elseif (in_array($this->getEnvironment(), ['prod'])) {
+            $bundles[] = new Ornicar\ApcBundle\OrnicarApcBundle();
         }
 
         return $bundles;
@@ -32,16 +34,16 @@ class AppKernel extends Kernel
 
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
+        $loader->load(__DIR__ . '/config/config_' . $this->getEnvironment() . '.yml');
     }
 
     public function getCacheDir()
     {
-        return $this->rootDir.'/../var/cache/'.$this->environment;
+        return $this->rootDir . '/../var/cache/' . $this->environment;
     }
 
     public function getLogDir()
     {
-        return $this->rootDir.'/../var/logs/'.$this->environment;
+        return $this->rootDir . '/../var/logs/' . $this->environment;
     }
 }

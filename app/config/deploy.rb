@@ -25,8 +25,20 @@ set :use_set_permissions, true
 set :symfony_console,     "bin/console"
 
 # Be more verbose by uncommenting the following line
-# logger.level = Logger::MAX_LEVEL
+#logger.level = Logger::MAX_LEVEL
 
 set :dump_assetic_assets, true
 
 default_run_options[:pty] = true
+
+namespace :symfony do
+  desc "Clear apc cache"
+  task :clear_apc do
+    capifony_pretty_print "--> Clear apc cache"
+    run "#{try_sudo} sh -c 'cd #{latest_release} && #{php_bin} #{symfony_console} apc:clear --env=#{symfony_env_prod} --no-debug'"
+    capifony_puts_ok
+  end
+end
+
+after "deploy", "symfony:clear_apc"
+after "deploy", "deploy:cleanup"
