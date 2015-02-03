@@ -15,4 +15,3 @@ CI
 ==
 
 There is a predefined ``build.xml`` file, that works with our current internal Jenkins configuration.
-Don't forget to ``git add -f var/.gitkeep``, because ``var`` directory is needed to detect directory configuration.
