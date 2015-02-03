@@ -23,3 +23,7 @@ monolog:
             level: debug
         console:
             type:  console
+
+ornicar_apc:
+    host:    "%domain%"
+    web_dir: "%kernel.root_dir%/../web"
