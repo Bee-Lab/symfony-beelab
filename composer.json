@@ -33,7 +33,8 @@
         "beelab/test-bundle": "1.0.*",
         "sensio/generator-bundle": "~2.3",
         "incenteev/composer-parameter-handler": "~2.0",
-        "phpunit/phpunit": "4.*"
+        "phpunit/phpunit": "4.*",
+        "fabpot/php-cs-fixer": "~1.5"
     },
     "scripts": {
         "post-install-cmd": [
