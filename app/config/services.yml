@@ -1,3 +1,5 @@
-#services:
-#    app.service:
-#        class: AppBundle\Dir\Class
+services:
+    app.listener.kernel_exception:
+        class: AppBundle\Listener\KernelExceptionListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
