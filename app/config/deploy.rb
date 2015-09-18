@@ -27,7 +27,7 @@ set :symfony_console,     "bin/console"
 # Be more verbose by uncommenting the following line
 #logger.level = Logger::MAX_LEVEL
 
-set :dump_assetic_assets, true
+set :dump_assetic_assets, false
 
 default_run_options[:pty] = true
 
