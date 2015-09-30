@@ -11,12 +11,8 @@
             <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
             <link href="//netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
             <link href="//getbootstrap.com/examples/sticky-footer-navbar/sticky-footer-navbar.css" rel="stylesheet">
+            <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
         {% endblock %}
-        {% stylesheets
-            'css/app.css'
-            filter='cssrewrite' %}
-            <link rel="stylesheet" href="{{ asset_url }}" />
-        {% endstylesheets %}
     </head>
     <body>
         <div class="container">
@@ -29,7 +25,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a href="{{ path('homepage') }}" class="navbar-brand" title="admin"><i class="fa fa-dashboard"></i></a>
+                        <a href="{{ path('homepage') }}" class="navbar-brand" title="home"><i class="fa fa-home"></i></a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <div class="navbar-inner">
@@ -52,11 +48,7 @@
             <script src="//code.jquery.com/jquery-2.1.4.js"></script>
             <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
             <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+            <script src="{{ asset('js/app.js') }}"></script>
         {% endblock %}
-        {% javascripts
-            'js/app.js'
-        %}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}
     </body>
 </html>
