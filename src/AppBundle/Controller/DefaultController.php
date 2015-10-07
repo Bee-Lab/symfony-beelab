@@ -6,7 +6,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
- * DefaultController
+ * DefaultController.
  */
 class DefaultController extends Controller
 {

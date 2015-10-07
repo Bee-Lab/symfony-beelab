@@ -8,7 +8,7 @@ use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
 
 /**
  * Intercept an exception related to FK constraint violation is thrown, add a flash
- * message and return to previous page
+ * message and return to previous page.
  */
 class KernelExceptionListener
 {

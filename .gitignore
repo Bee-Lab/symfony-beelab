@@ -1,3 +1,4 @@
+/.php_cs.cache
 /app/config/parameters.yml
 /bin/*
 !bin/console
