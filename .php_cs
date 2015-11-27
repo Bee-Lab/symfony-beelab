@@ -7,6 +7,6 @@ $finder = Symfony\CS\Finder\DefaultFinder::create()
 
 return Symfony\CS\Config\Config::create()
     ->setUsingCache(true)
-    ->fixers(['ordered_use', 'short_array_syntax'])
+    ->fixers(['ordered_use', 'unused_use', 'short_array_syntax'])
     ->finder($finder)
 ;
