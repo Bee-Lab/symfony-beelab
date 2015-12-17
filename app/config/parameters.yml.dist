@@ -13,10 +13,6 @@ parameters:
     mailer_user:       ~
     mailer_password:   ~
 
-    locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
-
-    debug_toolbar:          true
-    debug_redirects:        false
 
     domain: ~

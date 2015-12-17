@@ -43,6 +43,6 @@ class AppKernel extends Kernel
 
     public function getLogDir()
     {
-        return $this->rootDir.'/../var/logs/'.$this->environment;
+        return $this->rootDir.'/../var/logs';
     }
 }
