@@ -18,7 +18,6 @@ framework:
     validation:      { enable_annotations: true }
     templating:
         engines: ['twig']
-        #assets_version: SomeVersionScheme
     default_locale:  "%locale%"
     trusted_hosts:   ~
     trusted_proxies: ~
@@ -27,6 +26,8 @@ framework:
         handler_id:  ~
     fragments:       ~
     http_method_override: true
+    #assets:
+    #    version: v1
 
 # Twig Configuration
 twig:

@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Tests\Controller;
+namespace Tests\Controller;
 
 use Beelab\TestBundle\Test\WebTestCase;
 

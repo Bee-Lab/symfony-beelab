@@ -2,7 +2,6 @@
 /app/config/parameters.yml
 /bin/*
 !bin/console
-!bin/symfony_requirements
 /var/*
 !var/.gitkeep
 /vendor/

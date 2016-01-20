@@ -16,6 +16,9 @@
     "autoload": {
         "psr-4": { "": "src/" }
     },
+    "autoload-dev": {
+        "psr-4": { "Tests\\": "tests/" }
+    },
     "require": {
         "php": ">=5.4.0",
         "symfony/symfony": "2.8.*",
@@ -59,6 +62,7 @@
         "symfony-bin-dir": "bin",
         "symfony-var-dir": "var",
         "symfony-web-dir": "web",
+        "symfony-tests-dir": "tests",
         "symfony-assets-install": "relative",
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
