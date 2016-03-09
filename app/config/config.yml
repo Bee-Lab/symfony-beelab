@@ -59,9 +59,6 @@ doctrine:
             default:
                 auto_mapping: true
                 naming_strategy: doctrine.orm.naming_strategy.underscore
-                mappings:
-                    AppBundle:
-                        alias: app
 
 # Swiftmailer Configuration
 swiftmailer:
