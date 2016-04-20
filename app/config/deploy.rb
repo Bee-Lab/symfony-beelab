@@ -8,7 +8,9 @@ set(:domain) { "#{domain}" }
 set :keep_releases, 3
 set :user,        "beelab"
 set :deploy_to,   "/var/www/vhost/customize"
-set :app_path,    "app"
+set :var_path,    "var"
+set :cache_path,  var_path + "/cache"
+set :log_path,    var_path + "/logs"
 set :repository,  "git@bitbucket.org:beelab/customize.git"
 set :scm,         :git
 set :model_manager, "doctrine"
@@ -16,9 +18,9 @@ set :model_manager, "doctrine"
 set :use_composer,    true
 set :use_sudo,        false
 set :shared_files,    [app_path + "/config/parameters.yml"]
-set :shared_children, ["var/logs", web_path + "/uploads"]
+set :shared_children, [var_path + "/logs", web_path + "/uploads"]
 
-set :writable_dirs,       ["var/cache", "var/logs", web_path + "/uploads"]
+set :writable_dirs,       [var_path + "/cache", var_path + "/logs", web_path + "/uploads"]
 set :webserver_user,      "www-data"
 set :permission_method,   :acl
 set :use_set_permissions, true
