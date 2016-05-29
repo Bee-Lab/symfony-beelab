@@ -28,8 +28,7 @@
         "symfony/swiftmailer-bundle": "~2.3",
         "symfony/monolog-bundle": "~2.4",
         "sensio/framework-extra-bundle": "~3.0",
-        "sensio/distribution-bundle": "~4.0",
-        "smart-core/accelerator-cache-bundle": "1.1.*"
+        "sensio/distribution-bundle": "~4.0"
     },
     "require-dev": {
         "beelab/test-bundle": "~1.0",

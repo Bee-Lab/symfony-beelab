@@ -24,8 +24,6 @@ class AppKernel extends Kernel
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
             $bundles[] = new Beelab\TestBundle\BeelabTestBundle();
-        } elseif (in_array($this->getEnvironment(), ['prod'])) {
-            $bundles[] = new Ornicar\ApcBundle\OrnicarApcBundle();
         }
 
         return $bundles;
