@@ -35,7 +35,7 @@
         "sensio/generator-bundle": "~3.0",
         "incenteev/composer-parameter-handler": "~2.0",
         "phpunit/phpunit": "4.*",
-        "fabpot/php-cs-fixer": "~1.5"
+        "friendsofphp/php-cs-fixer": "~1.5"
     },
     "scripts": {
         "post-install-cmd": [
