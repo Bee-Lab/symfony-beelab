@@ -2,6 +2,7 @@
 /app/config/parameters.yml
 /bin/*
 !bin/console
+/phpunit.xml
 /var/*
 !var/.gitkeep
 /vendor/
