@@ -36,7 +36,7 @@
         "sensio/generator-bundle": "^3.0",
         "incenteev/composer-parameter-handler": "^2.0",
         "phpunit/phpunit": "4.*|5.*",
-        "friendsofphp/php-cs-fixer": "^1.5"
+        "friendsofphp/php-cs-fixer": "^2.0"
     },
     "scripts": {
         "symfony-scripts": [
