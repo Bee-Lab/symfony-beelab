@@ -15,6 +15,7 @@ set :scm,         :git
 set :model_manager, "doctrine"
 
 set :use_composer,    true
+set :composer_options, "--no-dev --verbose --prefer-dist --optimize-autoloader --classmap-authoritative --no-progress"
 set :use_sudo,        false
 set :shared_files,    [app_path + "/config/parameters.yml"]
 set :shared_children, [log_path, web_path + "/uploads"]
