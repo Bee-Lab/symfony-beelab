@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ app.request.locale }}">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,29 +15,27 @@
         {% endblock %}
     </head>
     <body>
-        <div class="container">
-            <nav role="navigation" class="navbar navbar-default navbar-fixed-top navbar-inverse navbar-md">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a href="{{ path('homepage') }}" class="navbar-brand" title="home"><i class="fa fa-home" aria-label="home"></i></a>
-                    </div>
-                    <div class="collapse navbar-collapse">
-                        <div class="navbar-inner">
-                            {# knp_menu_render('menu', {currentClass: 'active', template: '_menu.html.twig'}) #}
-                        </div>
+        <nav class="navbar navbar-default navbar-static-top navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="{{ path('homepage') }}" class="navbar-brand" title="home"><i class="fa fa-home" aria-label="home"></i></a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <div class="navbar-inner">
+                        {# knp_menu_render('menu', {currentClass: 'active', template: '_menu.html.twig'}) #}
                     </div>
                 </div>
-            </nav>
-            <div class="container">
-                {# include "_flash.html.twig" #}
-                {% block body '' %}
             </div>
+        </nav>
+        <div class="container">
+            {# include "_flash.html.twig" #}
+            {% block body '' %}
         </div>
         <footer class="footer">
             <div class="container">
