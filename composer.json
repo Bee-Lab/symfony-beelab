@@ -14,36 +14,46 @@
         }
     ],
     "autoload": {
-        "psr-4": { "": "src/" },
-        "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
+        "psr-4": { "App\\": "src/" }
     },
     "autoload-dev": {
         "psr-4": { "Tests\\": "tests/" }
     },
     "require": {
-        "php": ">=7.1",
-        "doctrine/doctrine-bundle": "^1.7",
-        "doctrine/orm": "^2.5",
+        "php": "^7.0",
         "sensio/distribution-bundle": "^5.0",
-        "sensio/framework-extra-bundle": "^3.0",
-        "symfony/monolog-bundle": "^3.0",
+        "sensio/framework-extra-bundle": "^4.0",
+        "symfony/asset": "^3.3",
+        "symfony/console": "^3.3",
+        "symfony/form": "^3.3",
+        "symfony/framework-bundle": "^3.3",
+        "symfony/monolog-bundle": "^3.1",
+        "symfony/orm-pack": "^1.0",
+        "symfony/routing": "^3.3",
+        "symfony/security-bundle": "^3.3",
         "symfony/swiftmailer-bundle": "^3.0",
-        "symfony/symfony": "2.8.*",
-        "twig/extensions": "^1.0"
+        "symfony/templating": "^3.3",
+        "symfony/twig-bundle": "^3.3",
+        "symfony/validator": "^3.3",
+        "symfony/yaml": "^3.3",
+        "twig/extensions": "^1.4"
     },
     "require-dev": {
         "beelab/test-bundle": "^2.0",
         "friendsofphp/php-cs-fixer": "^2.0",
-        "incenteev/composer-parameter-handler": "^2.0",
         "phpunit/phpunit": "^6.2",
-        "sensio/generator-bundle": "^3.0"
+        "symfony/browser-kit": "^3.3",
+        "symfony/css-selector": "^3.3",
+        "symfony/debug-bundle": "^3.3",
+        "symfony/dotenv": "^3.3",
+        "symfony/phpunit-bridge": "^3.3",
+        "symfony/profiler-pack": "^1.0",
+        "symfony/var-dumper": "^3.3"
     },
     "scripts": {
         "symfony-scripts": [
-            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets"
         ],
         "post-install-cmd": [
             "@symfony-scripts"
@@ -60,11 +70,8 @@
         "symfony-app-dir": "app",
         "symfony-bin-dir": "bin",
         "symfony-var-dir": "var",
-        "symfony-web-dir": "web",
+        "symfony-web-dir": "public",
         "symfony-tests-dir": "tests",
-        "symfony-assets-install": "relative",
-        "incenteev-parameters": {
-            "file": "app/config/parameters.yml"
-        }
+        "symfony-assets-install": "relative"
     }
 }

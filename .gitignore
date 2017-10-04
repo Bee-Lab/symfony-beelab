@@ -1,9 +1,9 @@
+/.env
 /.php_cs.cache
-/app/config/parameters.yml
-/bin/*
+/bin/
 !bin/console
 /phpunit.xml
-/var/*
+/public/bundles/
+/var/
 !var/.gitkeep
 /vendor/
-/web/bundles/

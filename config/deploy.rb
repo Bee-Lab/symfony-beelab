@@ -9,7 +9,7 @@ set :keep_releases, 3
 set :user,        "beelab"
 set :var_path,    "var"
 set :cache_path,  var_path + "/cache"
-set :log_path,    var_path + "/logs"
+set :log_path,    var_path + "/log"
 set :repository,  "git@bitbucket.org:beelab/customize.git"
 set :scm,         :git
 set :model_manager, "doctrine"
@@ -17,7 +17,6 @@ set :model_manager, "doctrine"
 set :use_composer,    true
 set :composer_options, "--no-dev --verbose --prefer-dist --optimize-autoloader --classmap-authoritative --no-progress"
 set :use_sudo,        false
-set :shared_files,    [app_path + "/config/parameters.yml"]
 set :shared_children, [log_path, web_path + "/uploads"]
 
 set :writable_dirs,       [cache_path, log_path, web_path + "/uploads"]
@@ -31,6 +30,12 @@ set :interactive_mode,    false
 #logger.level = Logger::MAX_LEVEL
 
 set :dump_assetic_assets, false
+
+set :default_environment, { 
+    'APP_ENV' => 'prod',
+    'APP_DEBUG' => '0',
+    'APP_MAILER_URL' => 'null://localhost'
+}
 
 default_run_options[:pty] = true
 

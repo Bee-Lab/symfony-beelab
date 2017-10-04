@@ -1,0 +1,5 @@
+controllers:
+    # XXX this path is relative to Kernel, not to this file!
+    resource: Controller/
+    type: annotation
+

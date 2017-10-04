@@ -1,9 +1,0 @@
-parameters:
-    database_url: 'mysql://root@127.0.0.1/symfony?charset=utf8'
-    database_test_url: 'mysql://root@127.0.0.1/symfony_test?charset=utf8'
-    # You should uncomment this if you want to use pdo_sqlite
-    #database_path: '%kernel.root_dir%/data.db3'
-
-    mailer_url: 'null://127.0.0.1'
-
-    secret: ThisTokenIsNotSoSecretChangeIt
