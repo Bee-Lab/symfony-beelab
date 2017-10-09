@@ -2,7 +2,6 @@
 
 namespace App;
 
-use Symfony\Bundle;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -25,7 +24,7 @@ class Kernel extends BaseKernel
         }
     }
 
-    public function configureContainer(ContainerBuilder $container, LoaderInterface $loader) 
+    public function configureContainer(ContainerBuilder $container, LoaderInterface $loader)
     {
         $confDir = __DIR__.'/../config';
         $loader->load($confDir.'/packages/*'.self::CONFIG_EXTS, 'glob');
@@ -35,7 +34,7 @@ class Kernel extends BaseKernel
         $loader->load($confDir.'/services'.self::CONFIG_EXTS, 'glob');
     }
 
-    protected function configureRoutes(RouteCollectionBuilder $routes) 
+    protected function configureRoutes(RouteCollectionBuilder $routes)
     {
         $confDir = __DIR__.'/../config';
         if (is_dir($confDir.'/routes/')) {
