@@ -7,7 +7,7 @@ use Beelab\TestBundle\Test\WebTestCase;
 /**
  * @group functional
  */
-class DefaultControllerTest extends WebTestCase
+final class DefaultControllerTest extends WebTestCase
 {
     public function testHomepage()
     {

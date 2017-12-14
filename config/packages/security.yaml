@@ -10,3 +10,4 @@ security:
 
         default:
             anonymous: ~
+            logout_on_user_change: true

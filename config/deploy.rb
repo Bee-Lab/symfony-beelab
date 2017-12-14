@@ -34,9 +34,9 @@ set :git_shallow_clone,   1
 set :dump_assetic_assets, false
 
 set :default_environment, { 
-    'APP_ENV' => 'prod',
-    'APP_DEBUG' => '0',
-    'APP_MAILER_URL' => 'null://localhost'
+  'APP_ENV' => 'prod',
+  'APP_DEBUG' => '0',
+  'APP_MAILER_URL' => 'null://localhost'
 }
 
 default_run_options[:pty] = true
