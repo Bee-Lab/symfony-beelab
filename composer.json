@@ -21,7 +21,7 @@
     },
     "require": {
         "php": "^7.0",
-        "sensio/framework-extra-bundle": "^5.0",
+        "sensio/framework-extra-bundle": "^5.1",
         "symfony/asset": "^3.4",
         "symfony/console": "^3.4",
         "symfony/flex": "^1.0",
