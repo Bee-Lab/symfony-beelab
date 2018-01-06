@@ -1,6 +1,3 @@
-parameters:
-    locale: en
-
 framework:
     default_locale: '%locale%'
     translator:
