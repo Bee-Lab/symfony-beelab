@@ -13,7 +13,7 @@ final class DefaultController extends AbstractController
      * @Route("/", name="homepage")
      * @Method("GET")
      */
-    public function homepageAction(): Response
+    public function homepage(): Response
     {
         return $this->render('default/homepage.html.twig');
     }
