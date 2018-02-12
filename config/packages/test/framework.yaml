@@ -1,6 +1,3 @@
-parameters:
-    domain: '%env(APP_DOMAIN)%'
-
 framework:
     test: ~
     session:
