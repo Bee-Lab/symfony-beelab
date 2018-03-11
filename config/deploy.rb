@@ -9,7 +9,6 @@ set :keep_releases, 3
 set :user,        "beelab"
 set :var_path,    "var"
 set :web_path,    "public"
-set :cache_path,  var_path + "/cache"
 set :log_path,    var_path + "/log"
 set :repository,  "git@bitbucket.org:beelab/customize.git"
 set :scm,         :git
@@ -20,7 +19,7 @@ set :composer_options, "-qoan --no-dev --prefer-dist --no-progress --no-suggest"
 set :use_sudo,        false
 set :shared_children, [log_path, web_path + "/uploads"]
 
-set :writable_dirs,       [cache_path, log_path, web_path + "/uploads"]
+set :writable_dirs,       [var_path, web_path + "/uploads"]
 set :webserver_user,      "www-data"
 set :permission_method,   :acl
 set :use_set_permissions, true
