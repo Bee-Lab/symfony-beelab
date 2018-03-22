@@ -14,6 +14,16 @@ class Kernel extends BaseKernel
 
     const CONFIG_EXTS = '.{php,xml,yaml,yml}';
 
+    public function getCacheDir(): string
+    {
+        return $this->getProjectDir().'/var/cache/'.$this->environment;
+    }
+
+    public function getLogDir(): string
+    {
+        return $this->getProjectDir().'/var/log';
+    }
+
     public function registerBundles(): \Iterator
     {
         $contents = require $this->getProjectDir().'/config/bundles.php';
@@ -47,15 +57,5 @@ class Kernel extends BaseKernel
             $routes->import($confDir.'/routes/'.$this->environment.'/**/*'.self::CONFIG_EXTS, '/', 'glob');
         }
         $routes->import($confDir.'/routes'.self::CONFIG_EXTS, '/', 'glob');
-    }
-
-    public function getCacheDir(): string
-    {
-        return $this->getProjectDir().'/var/cache/'.$this->environment;
-    }
-
-    public function getLogDir(): string
-    {
-        return $this->getProjectDir().'/var/log';
     }
 }
