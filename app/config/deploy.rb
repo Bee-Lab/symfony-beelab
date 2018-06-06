@@ -31,7 +31,7 @@ set :git_shallow_clone,   1
 # Be more verbose by uncommenting the following line
 #logger.level = Logger::MAX_LEVEL
 
-set :dump_assetic_assets, false
+set :assets_install, true
 
 default_run_options[:pty] = true
 
