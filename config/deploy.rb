@@ -14,6 +14,10 @@ set :repository,  "git@bitbucket.org:beelab/customize.git"
 set :scm,         :git
 set :model_manager, "doctrine"
 
+# You can use an old-style var/log/parameters.yml file with db parameters, to support db dump
+#set :app_config_path, log_path
+#set :app_config_file, "parameters.yml"
+
 set :use_composer,    true
 set :composer_options, "-qoan --no-dev --prefer-dist --no-progress --no-suggest"
 set :use_sudo,        false
@@ -30,7 +34,8 @@ set :git_shallow_clone,   1
 # Be more verbose by uncommenting the following line
 #logger.level = Logger::MAX_LEVEL
 
-set :dump_assetic_assets, false
+set :assets_install, true
+set :assets_install_path, web_path
 
 set :default_environment, { 
   'APP_ENV' => 'prod',
