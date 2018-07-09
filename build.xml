@@ -1,8 +1,0 @@
-<project name="%customize%" basedir="." default="build">
-    <property name="workspace" value="${basedir}" />
-    <property name="sourcedir" value="${basedir}/src" />
-    <property name="builddir" value="${workspace}/build" />
-    <property name="configdir" value="/home/beelab/jenkins/%customize%/" />
-    <property name="console" value="${workspace}/bin/console" />
-    <import file="/home/beelab/jenkins/build.xml"/>
-</project>
