@@ -23,7 +23,7 @@ set :composer_options, "-qoan --no-dev --prefer-dist --no-progress --no-suggest"
 set :use_sudo,        false
 set :shared_children, [log_path, web_path + "/uploads"]
 
-set :writable_dirs,       [var_path, web_path + "/uploads"]
+set :writable_dirs,       [var_path, log_path, web_path + "/uploads"]
 set :webserver_user,      "www-data"
 set :permission_method,   :acl
 set :use_set_permissions, true

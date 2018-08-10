@@ -35,7 +35,7 @@
         "symfony/twig-bundle": "^3.4",
         "symfony/validator": "^3.4",
         "symfony/yaml": "^3.4",
-        "twig/extensions": "^1.4"
+        "twig/extensions": "^1.5"
     },
     "require-dev": {
         "beelab/test-bundle": "^2.0",
@@ -48,6 +48,11 @@
         "symfony/flex": "^1.0",
         "symfony/phpunit-bridge": "^3.4",
         "symfony/profiler-pack": "^1.0"
+    },
+    "replace": {
+        "paragonie/random_compat": "*",
+        "symfony/polyfill-php56": "*",
+        "symfony/polyfill-php70": "*"
     },
     "scripts": {
         "auto-scripts": {
