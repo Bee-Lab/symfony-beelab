@@ -21,7 +21,7 @@
         "psr-4": { "Tests\\": "tests/" }
     },
     "require": {
-        "php": ">=7.1",
+        "php": "^7.1",
         "doctrine/doctrine-bundle": "^1.7",
         "doctrine/orm": "^2.5",
         "sensio/distribution-bundle": "^5.0",
@@ -35,8 +35,15 @@
         "beelab/test-bundle": "^2.0",
         "friendsofphp/php-cs-fixer": "^2.0",
         "incenteev/composer-parameter-handler": "^2.0",
-        "phpunit/phpunit": "^6.2",
+        "phpunit/phpunit": "^7.0",
         "sensio/generator-bundle": "^3.0"
+    },
+    "replace": {
+        "paragonie/random_compat": "*",
+        "symfony/polyfill-php54": "*",
+        "symfony/polyfill-php55": "*",
+        "symfony/polyfill-php56": "*",
+        "symfony/polyfill-php70": "*"
     },
     "scripts": {
         "symfony-scripts": [
