@@ -1,8 +1,8 @@
 {
     "name": "beelab/symfony-beelab",
-    "license": "MIT",
     "type": "project",
     "description": "Adapt this file with your actual project content",
+    "license": "MIT",
     "authors": [
         {
             "name": "Massimiliano Arione",
@@ -13,13 +13,6 @@
             "email": "mauro.dalatri@bee-lab.net"
         }
     ],
-    "autoload": {
-        "psr-4": { "": "src/" },
-        "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
-    },
-    "autoload-dev": {
-        "psr-4": { "Tests\\": "tests/" }
-    },
     "require": {
         "php": "^7.1",
         "doctrine/doctrine-bundle": "^1.7",
@@ -31,13 +24,6 @@
         "symfony/symfony": "2.8.*",
         "twig/extensions": "^1.0"
     },
-    "require-dev": {
-        "beelab/test-bundle": "^2.0",
-        "friendsofphp/php-cs-fixer": "^2.0",
-        "incenteev/composer-parameter-handler": "^2.0",
-        "phpunit/phpunit": "^7.0",
-        "sensio/generator-bundle": "^3.0"
-    },
     "replace": {
         "paragonie/random_compat": "*",
         "symfony/polyfill-php54": "*",
@@ -45,33 +31,54 @@
         "symfony/polyfill-php56": "*",
         "symfony/polyfill-php70": "*"
     },
-    "scripts": {
-        "symfony-scripts": [
-            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
-        ],
-        "post-install-cmd": [
-            "@symfony-scripts"
-        ],
-        "post-update-cmd": [
-            "@symfony-scripts"
-        ]
+    "require-dev": {
+        "beelab/test-bundle": "^2.0",
+        "friendsofphp/php-cs-fixer": "^2.0",
+        "incenteev/composer-parameter-handler": "^2.0",
+        "phpunit/phpunit": "^7.0",
+        "sensio/generator-bundle": "^3.0"
     },
     "config": {
         "bin-dir": "bin",
         "sort-packages": true
     },
     "extra": {
-        "symfony-app-dir": "app",
-        "symfony-bin-dir": "bin",
-        "symfony-var-dir": "var",
-        "symfony-web-dir": "web",
-        "symfony-tests-dir": "tests",
-        "symfony-assets-install": "relative",
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
+        },
+        "symfony-app-dir": "app",
+        "symfony-assets-install": "relative",
+        "symfony-bin-dir": "bin",
+        "symfony-tests-dir": "tests",
+        "symfony-var-dir": "var",
+        "symfony-web-dir": "web"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        },
+        "classmap": [
+            "app/AppKernel.php",
+            "app/AppCache.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
         }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "@symfony-scripts"
+        ],
+        "post-update-cmd": [
+            "@symfony-scripts"
+        ],
+        "symfony-scripts": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+        ]
     }
 }
