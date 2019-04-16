@@ -2,14 +2,9 @@
 
 use App\Kernel;
 use Symfony\Component\Debug\Debug;
-use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\HttpFoundation\Request;
 
 require __DIR__.'/../vendor/autoload.php';
-
-if (empty($_SERVER['APP_ENV'])) {
-    (new Dotenv())->load(__DIR__.'/../.env');
-}
 
 if ($_SERVER['APP_DEBUG'] ?? false) {
     Debug::enable();
