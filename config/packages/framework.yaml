@@ -3,7 +3,10 @@ framework:
     secret: '%env(APP_SECRET)%'
     form: ~
     csrf_protection: ~
-    validation: { enable_annotations: true }
+    validation:
+        mapping:
+            paths: 
+                - '%kernel.project_dir%/config/validation.xml'
     #serializer: { enable_annotations: true }
     templating:
         engines: ['twig']

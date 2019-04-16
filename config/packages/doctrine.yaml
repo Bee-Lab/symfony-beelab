@@ -9,12 +9,16 @@ doctrine:
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore
-        auto_mapping: true
+        auto_mapping: false
         mappings:
-            App:
+            entity:
+                type: xml
+                prefix: Beelab\Model\Entity
+                dir: '%kernel.project_dir%/config/doctrine/entity'
                 is_bundle: false
-                type: annotation
-                dir: '%kernel.project_dir%/src/Entity'
-                prefix: 'App\Entity'
-                alias: App
+            value_object:
+                type: xml
+                prefix: Beelab\Model\ValueObject
+                dir: '%kernel.project_dir%/config/doctrine/value_object'
+                is_bundle: false
 

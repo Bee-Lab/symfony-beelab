@@ -1,7 +1,3 @@
-parameters:
-    locale: en
-    domain: '%env(APP_DOMAIN)%'
-
 services:
     _defaults:
         autowire: true
@@ -9,6 +5,12 @@ services:
         public: false
 
     App\:
-        resource: '../src/*'
-        exclude: '../src/{Kernel.php}'
+        resource: '../src/App/*'
+        exclude: '../src/App/{File,Kernel.php,Security/User/User.php}'
+
+    Beelab\Handler\:
+        resource: '../src/Beelab/Handler'
+        exclude: '../src/Beelab/Handler/*/Abstract*'
+        public: true
+        tags: ['command_handler']
 
