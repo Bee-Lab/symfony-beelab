@@ -10,6 +10,7 @@ return PhpCsFixer\Config::create()
         '@Symfony' => true,
         'array_syntax' => ['syntax' => 'short'],
         'ordered_imports' => true,
+        'fopen_flags' => ['b_mode' => true],
     ])
     ->setFinder($finder)
 ;
