@@ -13,9 +13,13 @@ return PhpCsFixer\Config::create()
         '@PHP71Migration:risky' => true,
         '@PHPUnit60Migration:risky' => true,
         'array_syntax' => ['syntax' => 'short'],
+        'list_syntax' => ['syntax' => 'short'],
         'ordered_imports' => true,
         'declare_strict_types' => false,
         'native_function_invocation' => true,
+        'method_chaining_indentation' => true,
+        'phpdoc_trim_consecutive_blank_line_separation' => true,
+        'fopen_flags' => ['b_mode' => true],
     ])
     ->setFinder($finder)
 ;

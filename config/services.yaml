@@ -8,9 +8,9 @@ services:
         resource: '../src/App/*'
         exclude: '../src/App/{File,Kernel.php,Security/User/User.php}'
 
-    Beelab\Handler\:
-        resource: '../src/Beelab/Handler'
-        exclude: '../src/Beelab/Handler/*/Abstract*'
-        public: true
-        tags: ['command_handler']
+    #Beelab\Handler\:
+    #    resource: '../src/Beelab/Handler'
+    #    exclude: '../src/Beelab/Handler/*/Abstract*'
+    #    public: true
+    #    tags: ['command_handler']
 
