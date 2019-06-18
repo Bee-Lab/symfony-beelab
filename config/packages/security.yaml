@@ -1,13 +1,11 @@
 security:
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory:
-            memory: ~
-
+        in_memory: { memory: ~ }
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+        main:
+            anonymous: true
 
-        default:
-            anonymous: ~
-            logout_on_user_change: true

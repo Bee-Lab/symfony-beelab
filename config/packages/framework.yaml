@@ -1,5 +1,4 @@
 framework:
-    #esi: ~
     secret: '%env(APP_SECRET)%'
     form: ~
     csrf_protection: ~
@@ -7,15 +6,15 @@ framework:
         mapping:
             paths: 
                 - '%kernel.project_dir%/config/validation.xml'
-    #serializer: { enable_annotations: true }
-    templating:
-        engines: ['twig']
-    trusted_hosts: ~
+    #http_method_override: true
+
     session:
         # handler_id set to null will use default session handler from php.ini
         handler_id: ~
-    fragments: ~
-    http_method_override: true
+
+    #esi: true
+    #fragments: true
+    php_errors:
+        log: true
     #assets:
     #    version: v1
-
