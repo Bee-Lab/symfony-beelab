@@ -16,5 +16,5 @@ framework:
     #fragments: true
     php_errors:
         log: true
-    #assets:
-    #    version: v1
+    assets:
+        json_manifest_path: '%kernel.project_dir%/public/build/manifest.json'    

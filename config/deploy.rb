@@ -1,5 +1,5 @@
 set :stages,        %w(production staging)
-set :default_stage, "production"
+set :default_stage, "staging"
 set :stage_dir,     "config/deploy"
 require 'capistrano/ext/multistage'
 
@@ -35,6 +35,9 @@ set :git_shallow_clone,   1
 # Be more verbose by uncommenting the following line
 #logger.level = Logger::MAX_LEVEL
 
+set :dump_assetic_assets, false
+set :assets_install, false
+
 set :default_environment, { 
   'APP_ENV' => 'prod',
   'APP_DEBUG' => '0',
@@ -43,4 +46,26 @@ set :default_environment, {
 
 default_run_options[:pty] = true
 
+namespace :assets do
+  desc 'Run the precompile task locally and rsync with shared'
+  task :precompile do
+    capifony_pretty_print "--> Precompile assets"
+    run_locally('./node_modules/.bin/encore production')
+    run_locally('touch assets.tgz && rm assets.tgz')
+    run_locally('tar zcvf assets.tgz public/build/')
+    run_locally('mv assets.tgz public/build/')
+    capifony_puts_ok
+  end
+
+  desc 'Upload precompiled assets'
+  task :upload_assets do
+    capifony_pretty_print "--> Install remote assets"
+    upload "public/build/assets.tgz", "#{release_path}/assets.tgz"
+    run "cd #{release_path}; tar zxvf assets.tgz; rm assets.tgz"
+    capifony_puts_ok
+  end
+end
+
+before 'deploy:update_code', 'assets:precompile' unless fetch(:skip_compile, false)
+after 'deploy:create_symlink', 'assets:upload_assets'
 after "deploy", "deploy:cleanup"

@@ -1,8 +1,9 @@
 /.*.cache
 /bin/*
 !bin/console
+/node_modules
+/public/build/
 /phpunit.xml
-/public/bundles/
 /var/*
 !var/.gitkeep
 /vendor/
