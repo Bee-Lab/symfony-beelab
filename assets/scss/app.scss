@@ -1,7 +1,6 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
-@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
-@import "navbar.scss";
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import 'navbar';
 
 body > .container {
     padding-top: 0;
