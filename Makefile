@@ -27,7 +27,7 @@ test: ## execute test
 	docker-compose exec phpunit phpunit --stop-on-failure
 
 coverage: ## execute test with coverage
-	docker-compose exec phpunit phpdbg -qrr bin/phpunit --coverage-html build
+	docker-compose exec phpunit phpdbg -qrr bin/phpunit --coverage-html var/build
 
 update: ## update vendor
 	docker-compose exec php composer update
