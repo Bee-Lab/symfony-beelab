@@ -6,7 +6,7 @@ services:
 
     App\:
         resource: '../src/App/*'
-        exclude: '../src/App/{File,Kernel.php,Security/User/User.php}'
+        exclude: '../src/App/{Kernel.php,Security/User/User.php}'
 
     #Beelab\Handler\:
     #    resource: '../src/Beelab/Handler'

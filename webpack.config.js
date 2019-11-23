@@ -1,5 +1,4 @@
 let Encore = require('@symfony/webpack-encore');
-let CopyWebpackPlugin = require('copy-webpack-plugin');
 
 Encore
     // directory where all compiled assets will be stored
