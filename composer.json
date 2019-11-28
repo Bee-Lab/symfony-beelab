@@ -51,7 +51,7 @@
         "symfony/polyfill-php72": "*"
     },
     "flex-require-dev": {
-        "beelab/test-bundle": "^4.2",
+        "beelab/test-bundle": "^4.3",
         "dama/doctrine-test-bundle": "^6.2",
         "doctrine/doctrine-fixtures-bundle": "^3.3",
         "friendsofphp/php-cs-fixer": "^2.16",
