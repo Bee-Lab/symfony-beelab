@@ -19,7 +19,7 @@
         "ext-iconv": "*",
         "ext-intl": "*",
         "ext-mbstring": "*",
-        "symfony/flex": "^1.4"
+        "symfony/flex": "^1.5"
     },
     "flex-require": {
         "doctrine/doctrine-bundle": "^2.0",
