@@ -33,7 +33,6 @@
         "symfony/messenger": "^4.4",
         "symfony/monolog-bundle": "^3.5",
         "symfony/security-bundle": "^4.4",
-        "symfony/templating": "^4.4",
         "symfony/twig-bundle": "^4.4",
         "symfony/validator": "^4.4",
         "symfony/web-link": "^4.4",
