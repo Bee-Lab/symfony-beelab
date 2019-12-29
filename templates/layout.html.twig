@@ -8,7 +8,7 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
         <link rel="apple-touch-icon-precomposed" href="{{ asset('apple-touch-icon.png') }}">
         {% block stylesheets %}
-            <link href="{{ preload(asset('build/css/app.css')) }}" rel="stylesheet">
+            <link href="{{ preload(asset('build/css/app.css'), {as: 'style') }}" rel="stylesheet">
         {% endblock %}
     </head>
     <body>
@@ -39,7 +39,7 @@
             </div>
         </footer>
         {% block javascripts %}
-            <script src="{{ preload(asset('build/js/app.js')) }}"></script>
+            <script src="{{ preload(asset('build/js/app.js'), {as: 'script'}) }}"></script>
         {% endblock %}
     </body>
 </html>
