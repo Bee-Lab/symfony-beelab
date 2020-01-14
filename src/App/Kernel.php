@@ -15,6 +15,9 @@ final class Kernel extends BaseKernel
 
     private const CONFIG_EXTS = '.{php,xml,yaml,yml}';
 
+    /**
+     * @return \Iterator|\Symfony\Component\HttpKernel\Bundle\BundleInterface[]
+     */
     public function registerBundles(): \Iterator
     {
         $contents = require $this->getProjectDir().'/config/bundles.php';
@@ -28,7 +31,8 @@ final class Kernel extends BaseKernel
     protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader): void
     {
         $container->addResource(new FileResource($this->getProjectDir().'/config/bundles.php'));
-        $container->setParameter('container.dumper.inline_class_loader', true);
+        $container->setParameter('container.dumper.inline_class_loader', $this->debug);
+        $container->setParameter('container.dumper.inline_factories', true);
         $confDir = $this->getProjectDir().'/config';
         $loader->load($confDir.'/{packages}/*'.self::CONFIG_EXTS, 'glob');
         $loader->load($confDir.'/{packages}/'.$this->environment.'/**/*'.self::CONFIG_EXTS, 'glob');
