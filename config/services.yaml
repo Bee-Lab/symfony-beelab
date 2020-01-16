@@ -10,6 +10,5 @@ services:
     #Beelab\Handler\:
     #    resource: '../src/Beelab/Handler'
     #    exclude: '../src/Beelab/Handler/*/Abstract*'
-    #    public: true
-    #    tags: ['command_handler']
+    #    tags: ['messenger.message_handler']
 
