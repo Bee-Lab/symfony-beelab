@@ -24,7 +24,7 @@
     "flex-require": {
         "doctrine/doctrine-bundle": "^2.0",
         "doctrine/orm": "^2.7",
-        "ramsey/uuid-doctrine": "^1.5",
+        "ramsey/uuid-doctrine": "^1.6",
         "symfony/asset": "^4.4",
         "symfony/console": "^4.4",
         "symfony/form": "^4.4",
@@ -43,8 +43,10 @@
         "paragonie/random_compat": "*",
         "symfony/polyfill-ctype": "*",
         "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-intl-grapeme": "*",
         "symfony/polyfill-intl-icu": "*",
         "symfony/polyfill-intl-idn": "*",
+        "symfony/polyfill-intl-normalizer": "*",
         "symfony/polyfill-mbstring": "*",
         "symfony/polyfill-php56": "*",
         "symfony/polyfill-php70": "*",
@@ -59,7 +61,7 @@
         "symfony/browser-kit": "^4.4",
         "symfony/css-selector": "^4.4",
         "symfony/debug-bundle": "^4.4",
-        "symfony/phpunit-bridge": "^4.4",
+        "symfony/phpunit-bridge": "^5.0",
         "symfony/stopwatch": "^4.4",
         "symfony/web-profiler-bundle": "^4.4"
     },
