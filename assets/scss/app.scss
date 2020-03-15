@@ -25,3 +25,15 @@ input[type="date"].form-control, input[type="time"].form-control, input[type="mo
         margin-top: 0;
     }
 }
+
+@media print {
+    body {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    a[href]:after {
+        content: none;
+    }
+}
+

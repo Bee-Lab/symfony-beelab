@@ -1,7 +1,5 @@
 framework:
     secret: '%env(APP_SECRET)%'
-    form: ~
-    csrf_protection: ~
     validation:
         mapping:
             paths: 
@@ -12,6 +10,7 @@ framework:
         # handler_id set to null will use default session handler from php.ini
         handler_id: ~
         cookie_secure: auto
+        cookie_samesite: lax
     #esi: true
     #fragments: true
     php_errors:
