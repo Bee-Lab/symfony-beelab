@@ -1,7 +1,5 @@
-$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import '~bootstrap/scss/bootstrap';
 @import 'navbar';
-@import 'sticky-footer';
 
 body > .container {
     padding-top: 0;
@@ -11,11 +9,6 @@ body > .container {
 // see https://bugzilla.mozilla.org/show_bug.cgi?id=1503427#c14
 input[type="date"].form-control, input[type="time"].form-control, input[type="month"].form-control {
     line-height: initial;
-}
-
-// see https://github.com/twbs/bootstrap/issues/9939#issuecomment-37682952
-.btn-group {
-    display: flex;
 }
 
 // media query
