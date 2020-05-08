@@ -1,8 +1,10 @@
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/solid';
 @import '~bootstrap/scss/bootstrap';
-@import 'navbar';
+@import 'sticky-footer';
 
 body > .container {
-    padding-top: 0;
+    margin-top: 55px;
     padding-bottom: 10px;
 }
 
@@ -11,7 +13,7 @@ input[type="date"].form-control, input[type="time"].form-control, input[type="mo
     line-height: initial;
 }
 
-// media query
+// media queries
 
 @media screen and (max-width: 767px) {
     h2 {
