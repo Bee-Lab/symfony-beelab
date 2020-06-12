@@ -19,7 +19,7 @@
         "ext-iconv": "*",
         "ext-intl": "*",
         "ext-mbstring": "*",
-        "symfony/flex": "^1.6"
+        "symfony/flex": "^1.7"
     },
     "flex-require": {
         "doctrine/doctrine-bundle": "^2.0",
@@ -54,7 +54,7 @@
         "symfony/polyfill-php73": "*"
     },
     "flex-require-dev": {
-        "beelab/test-bundle": "^4.3",
+        "beelab/test-bundle": "^4.4",
         "dama/doctrine-test-bundle": "^6.3",
         "doctrine/doctrine-fixtures-bundle": "^3.3",
         "friendsofphp/php-cs-fixer": "^2.16",
