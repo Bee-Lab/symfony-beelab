@@ -12,6 +12,6 @@ final class DefaultControllerTest extends WebTestCase
     public function testHomepage(): void
     {
         self::$client->request('GET', '/');
-        $this->assertTrue(self::$client->getResponse()->isOk());
+        self::assertResponseIsSuccessful();
     }
 }

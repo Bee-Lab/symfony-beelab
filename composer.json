@@ -19,7 +19,7 @@
         "ext-iconv": "*",
         "ext-intl": "*",
         "ext-mbstring": "*",
-        "symfony/flex": "^1.7"
+        "symfony/flex": "^1.8"
     },
     "flex-require": {
         "doctrine/doctrine-bundle": "^2.0",
@@ -54,11 +54,11 @@
         "symfony/polyfill-php73": "*"
     },
     "flex-require-dev": {
-        "beelab/test-bundle": "^4.4",
+        "beelab/test-bundle": "^4.5",
         "dama/doctrine-test-bundle": "^6.3",
         "doctrine/doctrine-fixtures-bundle": "^3.3",
         "friendsofphp/php-cs-fixer": "^2.16",
-        "phpunit/phpunit": "^9.1",
+        "phpunit/phpunit": "^9.2",
         "symfony/browser-kit": "^4.4",
         "symfony/css-selector": "^4.4",
         "symfony/debug-bundle": "^4.4",
@@ -77,13 +77,11 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/App/",
-            "Beelab\\": "src/Beelab/"
+            "": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Fixtures\\": "fixtures/",
             "Tests\\": "tests/"
         }
     },

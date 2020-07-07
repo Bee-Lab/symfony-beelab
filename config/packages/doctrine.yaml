@@ -9,12 +9,12 @@ doctrine:
         mappings:
             entity:
                 type: xml
-                prefix: Beelab\Model\Entity
+                prefix: Domain\Entity
                 dir: '%kernel.project_dir%/config/doctrine/entity'
                 is_bundle: false
             value_object:
                 type: xml
-                prefix: Beelab\Model\ValueObject
+                prefix: Domain\ValueObject
                 dir: '%kernel.project_dir%/config/doctrine/value_object'
                 is_bundle: false
 

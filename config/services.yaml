@@ -3,12 +3,12 @@ services:
         autowire: true
         autoconfigure: true
 
-    App\:
-        resource: '../src/App/*'
-        exclude: '../src/App/{Kernel.php,Security/User/User.php}'
+    Infrastructure\:
+        resource: '../src/Infrastructure/*'
+        exclude: '../src/Infrastructure/{Kernel.php,Security/User/User.php}'
 
-    #Beelab\Handler\:
-    #    resource: '../src/Beelab/Handler'
-    #    exclude: '../src/Beelab/Handler/*/Abstract*'
+    #Application\Handler\:
+    #    resource: '../src/Application/Handler'
+    #    exclude: '../src/Application/Handler/*/Abstract*'
     #    tags: ['messenger.message_handler']
 

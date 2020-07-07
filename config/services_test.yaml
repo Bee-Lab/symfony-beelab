@@ -3,8 +3,8 @@ services:
         public: true
         autowire: true
 
-    Fixtures\:
-        resource: '../fixtures/*'
+    Tests\Fixtures\:
+        resource: '../tests/Fixtures/*'
         tags: ['doctrine.fixture.orm']
 
     # If you need to access services in a test, create an alias

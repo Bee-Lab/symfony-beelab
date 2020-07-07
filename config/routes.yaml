@@ -1,4 +1,4 @@
 homepage:
     path: /
     methods: GET
-    controller: App\Controller\DefaultController::homepage
+    controller: Infrastructure\Controller\DefaultController::homepage
