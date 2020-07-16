@@ -1,21 +1,16 @@
-@import '~@fortawesome/fontawesome-free/scss/fontawesome';
-@import '~@fortawesome/fontawesome-free/scss/solid';
-@import '~bootstrap/scss/bootstrap';
-@import 'sticky-footer';
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~bootstrap/scss/bootstrap";
+@import "sticky-footer";
 
 body > .container {
     margin-top: 55px;
     padding-bottom: 10px;
 }
 
-// see https://bugzilla.mozilla.org/show_bug.cgi?id=1503427#c14
-input[type="date"].form-control, input[type="time"].form-control, input[type="month"].form-control {
-    line-height: initial;
-}
-
 // media queries
 
-@media screen and (max-width: 767px) {
+@include media-breakpoint-down(sm) {
     h2 {
         margin-top: 0;
     }
