@@ -31,6 +31,7 @@ set :use_set_permissions, true
 set :symfony_console,     "bin/console"
 set :interactive_mode,    false
 set :git_shallow_clone,   1
+set :clear_controllers,   false
 
 # Be more verbose by uncommenting the following line
 #logger.level = Logger::MAX_LEVEL
