@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app.request.locale }}">
+<html lang="{{ app.request.locale }}" class="h-100">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -11,25 +11,27 @@
             <link href="{{ preload(asset('build/css/app.css'), {as: 'style'}) }}" rel="stylesheet">
         {% endblock %}
     </head>
-    <body>
-        <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-            <div class="container">
-                <a href="{{ path('homepage') }}" class="navbar-brand" title="home">
-                    <i class="fa fa-home" aria-label="home"></i>
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    {# knp_menu_render('menu'}) #}
+    <body class="d-flex flex-column h-100">
+        <main role="main" class="flex-shrink-0">
+            <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+                <div class="container">
+                    <a href="{{ path('homepage') }}" class="navbar-brand" title="home">
+                        <i class="fa fa-home" aria-label="home"></i>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        {# knp_menu_render('menu'}) #}
+                    </div>
                 </div>
+            </nav>
+            <div class="container">
+                {# include '_flash.html.twig' #}
+                {% block body '' %}
             </div>
-        </nav>
-        <div class="container">
-            {# include '_flash.html.twig' #}
-            {% block body '' %}
-        </div>
-        <footer class="footer">
+        </main>
+        <footer class="footer mt-auto py-3">
             <div class="container">
                 <p class="text-muted">© 2020 <a href="https://github.com/bee-lab/">BeeLab</a></p>
             </div>
