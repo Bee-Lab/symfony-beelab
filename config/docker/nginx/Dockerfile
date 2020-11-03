@@ -13,7 +13,7 @@ sed -i "s@define('CONFIG_DIR'.*@define('CONFIG_DIR', '/usr/src/phpmyadmin/');@" 
 cp /usr/src/phpmyadmin/config.sample.inc.php /usr/src/phpmyadmin/config.inc.php; \
 sed -i "s/'localhost'/'database'/" /usr/src/phpmyadmin/config.inc.php; \
 sed -i "s/'cookie'/'config'/" /usr/src/phpmyadmin/config.inc.php; \
-echo "\$cfg['Servers'][\$i]['password'] = 'root';" >> /usr/src/phpmyadmin/config.inc.php;
+echo "\$cfg['Servers'][\$i]['password'] = 'root';\n\$cfg['TempDir'] = '/tmp';" >> /usr/src/phpmyadmin/config.inc.php;
 
 COPY nginx.conf /etc/nginx/conf.d/nginx.conf
 

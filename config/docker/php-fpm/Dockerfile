@@ -53,13 +53,10 @@ sed -i "s@define('CONFIG_DIR'.*@define('CONFIG_DIR', '/usr/src/phpmyadmin/');@" 
 cp /usr/src/phpmyadmin/config.sample.inc.php /usr/src/phpmyadmin/config.inc.php; \
 sed -i "s/'localhost'/'database'/" /usr/src/phpmyadmin/config.inc.php; \
 sed -i "s/'cookie'/'config'/" /usr/src/phpmyadmin/config.inc.php; \
-echo "\$cfg['Servers'][\$i]['password'] = 'root';" >> /usr/src/phpmyadmin/config.inc.php;
+echo "\$cfg['Servers'][\$i]['password'] = 'root';\n\$cfg['TempDir'] = '/tmp';" >> /usr/src/phpmyadmin/config.inc.php;
 
 # Install nodejs
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && apt install -y --no-install-recommends nodejs
-
-# Install capifony
-RUN apt update && apt install -y --no-install-recommends ruby && gem install capifony
 
 # Cleanup
 RUN apt remove --purge -y $BUILD_PACKAGES && rm -rf /var/lib/apt/lists/*

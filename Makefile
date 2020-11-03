@@ -11,7 +11,7 @@ help:
 	@awk 'BEGIN {FS = ":.*##"; printf "Use: make \033[36m<target>\033[0m\n"} /^[a-zA-Z_-]+:.*?##/ { printf "  \033[36m%-10s\033[0m %s\n", $$1, $$2 } /^##@/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 5) } ' $(MAKEFILE_LIST)
 
 start:	## start docker
-	docker-compose up -d 
+	docker-compose up -d
 
 stop: ## stop docker
 	docker-compose stop
@@ -29,13 +29,13 @@ dbupdate: ## update database
 load: ## load fixtures
 	${EXEC} phpunit console do:fi:lo -n
 
-test: ## execute test
+test: ## execute tests
 	${EXEC} phpunit phpunit --stop-on-failure
 
-coverage: ## execute test with coverage
+coverage: ## execute tests with coverage
 	${EXEC} phpunit phpdbg -qrr bin/phpunit --coverage-html var/build
 
-update: ## update vendor
+update: ## update vendors
 	${EXEC} php composer update
 
 asset: ## compile assets
@@ -51,4 +51,4 @@ npm: ## install frontend dependencies
 	${EXEC} php npm install
 
 deploy: ## deploy
-	${EXEC} php cap deploy
+	${EXEC} php bin/dep deploy production
