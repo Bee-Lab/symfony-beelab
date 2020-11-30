@@ -19,10 +19,10 @@
         "ext-iconv": "*",
         "ext-intl": "*",
         "ext-mbstring": "*",
-        "symfony/flex": "^1.9"
+        "symfony/flex": "^1.10"
     },
     "flex-require": {
-        "doctrine/doctrine-bundle": "^2.1",
+        "doctrine/doctrine-bundle": "^2.2",
         "doctrine/orm": "^2.7",
         "ramsey/uuid-doctrine": "^1.6",
         "symfony/asset": "^4.4",
@@ -53,8 +53,8 @@
         "symfony/polyfill-php73": "*"
     },
     "flex-require-dev": {
-        "beelab/test-bundle": "^5.0",
-        "dama/doctrine-test-bundle": "^6.3",
+        "beelab/test-bundle": "^5.1",
+        "dama/doctrine-test-bundle": "^6.4",
         "deployer/dist": "^7.0@beta",
         "doctrine/doctrine-fixtures-bundle": "^3.3",
         "friendsofphp/php-cs-fixer": "^2.16",

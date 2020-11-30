@@ -2,7 +2,7 @@ assets                     export-ignore
 config/docker              export-ignore
 config/packages/dev        export-ignore
 config/packages/test       export-ignore
-config/routes/dev          export-ignore
+config/routes              export-ignore
 config/services_test.yaml  export-ignore
 deploy.php                 export-ignore
 docker-compose.yaml        export-ignore
