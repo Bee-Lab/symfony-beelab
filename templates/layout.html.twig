@@ -10,6 +10,9 @@
         {% block stylesheets %}
             <link href="{{ preload(asset('build/css/app.css'), {as: 'style'}) }}" rel="stylesheet">
         {% endblock %}
+        {% block javascripts %}
+            <script src="{{ preload(asset('build/js/app.js'), {as: 'script'}) }}" defer></script>
+        {% endblock %}
     </head>
     <body class="d-flex flex-column h-100">
         <main role="main" class="flex-shrink-0">
@@ -36,8 +39,5 @@
                 <p class="text-muted">© 2021 <a href="https://github.com/bee-lab/">BeeLab</a></p>
             </div>
         </footer>
-        {% block javascripts %}
-            <script src="{{ preload(asset('build/js/app.js'), {as: 'script'}) }}"></script>
-        {% endblock %}
     </body>
 </html>
