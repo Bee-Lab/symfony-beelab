@@ -25,9 +25,9 @@ task('deploy:db:update', static function (): void {
 desc('Copy remote database to local');
 task('deploy:db:from_remote_copy', static function (): void {
     $url1 = run('grep APP_DATABASE_URL /etc/nginx/sites-available/{{application}}');
-    \preg_match('/mysql:\/\/(\w+):(.+)@.+/', $url1, $matches);
+    \preg_match('/mysql:\/\/(\w+):(.+)@.+\/(.+)/', $url1, $matches);
     $name = '{{application}}_'.\date('YmdHis').'.sql';
-    run('mysqldump -u '.$matches[1].' -p'.$matches[2].' {{application}} > /tmp/'.$name.'; gzip /tmp/'.$name);
+    run('mysqldump -u '.$matches[1].' -p'.$matches[2].' '.$matches[3].' > /tmp/'.$name.'; gzip /tmp/'.$name);
     runLocally('scp {{user}}@{{hostname}}:/tmp/'.$name.'.gz .');
     $url2 = runLocally('env | grep APP_DATABASE_URL');
     \preg_match('/APP_DATABASE_URL=mysql:\/\/(\w+):(.+)@(.+)\/(.+)/', $url2, $matches);
@@ -51,7 +51,6 @@ task('deploy:db:to_remote_copy', static function (): void {
 desc('Precompile assets');
 task('deploy:assets:build_local', static function (): void {
     runLocally('./node_modules/.bin/encore production');
-    runLocally('touch assets.tgz && rm assets.tgz');
     runLocally('tar zcvf assets.tgz public/build/');
     runLocally('mv assets.tgz public/build/');
 });

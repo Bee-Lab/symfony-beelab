@@ -14,12 +14,12 @@
         }
     ],
     "require": {
-        "php": "^7.4",
+        "php": "^7.4 || ^8.0",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-intl": "*",
         "ext-mbstring": "*",
-        "symfony/flex": "^1.11"
+        "symfony/flex": "^1.12"
     },
     "flex-require": {
         "doctrine/doctrine-bundle": "^2.2",

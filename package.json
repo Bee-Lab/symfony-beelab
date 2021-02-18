@@ -1,17 +1,17 @@
 {
-  "name": "beelab",
+  "name": "@beelab/symfony-beelab",
   "version": "1.0.0",
   "license": "UNLICENSED",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.2",
-    "bootstrap": "^4.5.3",
+    "bootstrap": "^4.6.0",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1"
   },
   "devDependencies": {
-    "@symfony/webpack-encore": "^0.33.0",
+    "@symfony/webpack-encore": "^1.0.0",
     "node-sass": "^4.14.1",
-    "sass-loader": "^9.0.1"
+    "sass-loader": "^10.1.1"
   },
   "author": "Massimiliano Arione",
   "homepage": "https://github.com/bee-lab"

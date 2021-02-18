@@ -10,10 +10,10 @@ Encore
     // empty the outputPath dir before each build
     .cleanupOutputBeforeBuild()
 
-    // will output as web/build/*.js
+    // will output as public/build/*.js
     .addEntry('js/app', './assets/js/app.js')
 
-    // will output as web/build/*.css
+    // will output as public/build/*.css
     .addStyleEntry('css/app', './assets/scss/app.scss')
 
     // allow sass/scss files to be processed

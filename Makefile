@@ -44,8 +44,8 @@ asset: ## compile assets
 cs: ## execute fix coding standard
 	${EXEC} php php-cs-fixer fix -v
 
-stan: ## execute static analysis (requires phpstan globally installed)
-	~/.composer/bin/phpstan analyse
+stan: ## execute static analysis (requires phpstan locally installed)
+	${EXEC} php bin/phpstan --memory-limit=-1 analyse
 
 npm: ## install frontend dependencies
 	${EXEC} php npm install
