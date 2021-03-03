@@ -1,0 +1,57 @@
+.navbar-toggler {
+    &:focus, &:active {
+        outline: 0;
+    }
+
+    position: relative;
+    border-width: 0;
+
+    span {
+        display: block;
+        background-color: #444;
+        height: 3px;
+        width: 25px;
+        margin-top: 4px;
+        margin-bottom: 4px;
+        transform: rotate(0deg);
+        position: relative;
+        left: 0;
+        opacity: 1;
+    }
+
+    span:nth-child(1), span:nth-child(3) {
+        transition: transform .35s ease-in-out;
+    }
+
+    &:not(.collapsed) {
+        span:nth-child(1) {
+            position: absolute;
+            left: 12px;
+            top: 10px;
+            transform: rotate(135deg);
+            opacity: 0.9;
+        }
+
+        span:nth-child(2) {
+            height: 15px;
+            visibility: hidden;
+            background-color: transparent;
+        }
+
+        span:nth-child(3) {
+            position: absolute;
+            left: 12px;
+            top: 10px;
+            transform: rotate(-135deg);
+            opacity: 0.9;
+        }
+    }
+}
+
+.navbar-dark {
+    .navbar-toggler {
+        span {
+            background-color: #ccc;
+        }
+    }
+}

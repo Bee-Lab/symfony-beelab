@@ -22,4 +22,4 @@ RUN apt remove --purge -y $BUILD_PACKAGES && rm -rf /var/lib/apt/lists/*
 RUN mkdir /user && useradd -u $HOST_UID -d /user -s /bin/bash user && chown user /user
 USER user
 
-WORKDIR /user/customize
+WORKDIR /user/app

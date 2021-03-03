@@ -74,3 +74,4 @@ task('deploy:update_code', static function (): void {
 after('deploy:failed', 'deploy:unlock');
 after('deploy:prepare', 'deploy:assets:build_local');
 before('deploy:symlink', 'deploy:assets:upload');
+before('deploy:symlink', 'deploy:db:update');

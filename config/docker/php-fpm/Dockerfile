@@ -44,11 +44,11 @@ COPY --from=composer /usr/bin/composer /usr/local/bin/composer
 
 # Install phpmyadmin
 RUN set -ex; \
-    curl -k --output phpMyAdmin.tar.xz --location https://files.phpmyadmin.net/phpMyAdmin/4.9.7/phpMyAdmin-4.9.7-all-languages.tar.xz; \
+    curl -k --output phpMyAdmin.tar.xz --location https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-all-languages.tar.xz; \
     tar -xf phpMyAdmin.tar.xz -C /usr/src; \
     rm -r phpMyAdmin.tar.xz; \
-    mv /usr/src/phpMyAdmin-4.9.7-all-languages /usr/src/phpmyadmin; \
-    rm -rf /usr/src/phpmyadmin/setup/ /usr/src/phpmyadmin/examples/ /usr/src/phpmyadmin/test/ /usr/src/phpmyadmin/po/ /usr/src/phpmyadmin/composer.json /usr/src/phpmyadmin/RELEASE-DATE-4.9.7; \
+    mv /usr/src/phpMyAdmin-5.0.4-all-languages /usr/src/phpmyadmin; \
+    rm -rf /usr/src/phpmyadmin/setup/ /usr/src/phpmyadmin/examples/ /usr/src/phpmyadmin/test/ /usr/src/phpmyadmin/po/ /usr/src/phpmyadmin/composer.json /usr/src/phpmyadmin/RELEASE-DATE-5.0.4; \
 sed -i "s@define('CONFIG_DIR'.*@define('CONFIG_DIR', '/usr/src/phpmyadmin/');@" /usr/src/phpmyadmin/libraries/vendor_config.php; \
 cp /usr/src/phpmyadmin/config.sample.inc.php /usr/src/phpmyadmin/config.inc.php; \
 sed -i "s/'localhost'/'database'/" /usr/src/phpmyadmin/config.inc.php; \
@@ -68,4 +68,4 @@ RUN git config --global core.excludesfile ~/.gitignore
 
 COPY php-fpm.conf /etc/php-fpm.conf
 
-WORKDIR /user/customize
+WORKDIR /user/app

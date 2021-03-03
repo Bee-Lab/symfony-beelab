@@ -2,10 +2,15 @@
 @import "~@fortawesome/fontawesome-free/scss/regular";
 @import "~@fortawesome/fontawesome-free/scss/solid";
 @import "~bootstrap/scss/bootstrap";
+@import "animated_menu";
 
 main > .container {
-    margin-top: 55px;
+    margin-top: 20px;
     padding-bottom: 10px;
+}
+
+footer {
+    background-color: $gray-100;
 }
 
 // media queries
