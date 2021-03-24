@@ -11,8 +11,7 @@ RUN rm /etc/localtime && ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
 
 # Install PHP extensions
 RUN apt update && apt install -y --no-install-recommends zlib1g-dev libicu-dev g++ vim default-mysql-client libxslt1-dev libxrender1 libxext6 libfontconfig libjpeg-dev libonig-dev
-RUN docker-php-ext-configure intl
-RUN docker-php-ext-install pdo pdo_mysql intl mysqli ctype mbstring iconv xsl
+RUN docker-php-ext-install pdo pdo_mysql intl mysqli iconv xsl
 
 # Install xdebug
 RUN pecl install xdebug-2.9.8 && docker-php-ext-enable xdebug

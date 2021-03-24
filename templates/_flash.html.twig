@@ -1,6 +1,6 @@
 {% for messageType in ['success', 'info', 'warning', 'danger'] %}
     {% for flashMessage in app.session.flashbag.get(messageType) %}
-        <div class="alert alert-{{ messageType }}">
+        <div class="alert alert-{{ messageType }} show">
             <button class="close" data-dismiss="alert" type="button">&times;</button>
             {{ flashMessage|trans }}
         </div>

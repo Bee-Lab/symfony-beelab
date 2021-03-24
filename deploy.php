@@ -11,9 +11,7 @@ set('keep_releases', 2);
 set('shared_files', []);
 set('shared_dirs', ['var/log']);
 set('writable_dirs', ['var']);
-set('release_name', static function (): string {
-    return \date('YmdHis');
-});
+set('release_name', static fn (): string => \date('YmdHis'));
 
 desc('Update database');
 task('deploy:db:update', static function (): void {
@@ -66,10 +64,6 @@ host('production')
     ->set('deploy_path', '~/{{application}}')
     ->set('user', 'myuser') // TODO set your username
 ;
-
-task('deploy:update_code', static function (): void {
-    run('git archive --remote {{repository}} --format=tar {{branch}} | (cd {{release_path}} && tar xf -)');
-});
 
 after('deploy:failed', 'deploy:unlock');
 after('deploy:prepare', 'deploy:assets:build_local');

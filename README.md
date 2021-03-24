@@ -1,5 +1,4 @@
-Symfony Beelab Edition
-======================
+# Symfony Beelab Edition
 
 Install with `composer create-project beelab/symfony-beelab:dev-garak path/to/install`
 

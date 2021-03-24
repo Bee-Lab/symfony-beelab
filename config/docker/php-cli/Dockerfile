@@ -10,7 +10,7 @@ RUN rm /etc/localtime && ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
 
 # Install extensions
 RUN apt update && apt install -y --no-install-recommends zlib1g-dev libicu-dev g++ vim libxslt1-dev libxrender1 libxext6 libfontconfig libjpeg-dev libonig-dev
-RUN docker-php-ext-configure intl && docker-php-ext-install pdo pdo_mysql intl xsl
+RUN docker-php-ext-install pdo pdo_mysql intl xsl
 
 RUN echo 'error_reporting = E_ALL' >> /usr/local/etc/php/conf.d/error-reporting.ini
 RUN echo "memory_limit = -1" >> /usr/local/etc/php/conf.d/memory-limit.ini
