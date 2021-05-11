@@ -4,8 +4,8 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
-    "bootstrap": "^4.6.0",
-    "bootstrap.native": "^3.0.14-f"
+    "@popperjs/core": "^2.9.2",
+    "bootstrap": "^5.0.0"
   },
   "devDependencies": {
     "@symfony/webpack-encore": "^1.1.2",

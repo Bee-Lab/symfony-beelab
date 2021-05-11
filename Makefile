@@ -41,14 +41,14 @@ update: ## update vendors
 asset: ## compile assets
 	${EXEC} php node_modules/.bin/encore dev --watch
 
-cs: ## execute fix coding standard
-	${EXEC} php php-cs-fixer fix -v
+cs: ## execute fix coding standard  (requires php-cs-fixer locally installed)
+	${EXEC} -e COLUMNS=80 php php-cs-fixer fix -v
 
 stan: ## execute static analysis (requires phpstan locally installed)
-	${EXEC} php bin/phpstan --memory-limit=-1 analyse
+	${EXEC} php phpstan --memory-limit=-1 analyse
 
 npm: ## install frontend dependencies
 	${EXEC} php npm install
 
 deploy: ## deploy
-	${EXEC} php bin/dep deploy production
+	${EXEC} php dep deploy production

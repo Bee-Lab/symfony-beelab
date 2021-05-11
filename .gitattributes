@@ -10,8 +10,8 @@
 /.git*                      export-ignore
 /Makefile                   export-ignore
 /package*                   export-ignore
-/.php_cs                    export-ignore
-/phpstan*                   export-ignore
+/.php-cs-fixer.php          export-ignore
+/phpstan*.neon              export-ignore
 /phpunit.xml.dist           export-ignore
 /README.md                  export-ignore
 /tests                      export-ignore

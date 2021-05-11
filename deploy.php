@@ -11,7 +11,7 @@ set('keep_releases', 2);
 set('shared_files', []);
 set('shared_dirs', ['var/log']);
 set('writable_dirs', ['var']);
-set('release_name', static fn (): string => \date('YmdHis'));
+set('release_name', static fn (): string => \date('ymdHi'));
 
 desc('Update database');
 task('deploy:db:update', static function (): void {

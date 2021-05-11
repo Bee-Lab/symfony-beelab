@@ -5,7 +5,7 @@ $finder = PhpCsFixer\Finder::create()
     ->in([__DIR__.'/src', __DIR__.'/tests'])
 ;
 
-return PhpCsFixer\Config::create()
+return (new PhpCsFixer\Config())
     ->setRiskyAllowed(true)
     ->setRules([
         '@Symfony' => true,
@@ -14,7 +14,7 @@ return PhpCsFixer\Config::create()
         '@PHP74Migration:risky' => true,
         '@PHPUnit84Migration:risky' => true,
         'declare_strict_types' => false,
-        'native_function_invocation' => true,
+        'native_function_invocation' => ['include' => ['@all']],
         'method_chaining_indentation' => true,
         'phpdoc_trim_consecutive_blank_line_separation' => true,
         'fopen_flags' => ['b_mode' => true],
