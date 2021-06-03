@@ -1,0 +1,9 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "at-rule-no-unknown": null,
+    "indentation": 4,
+    "selector-list-comma-newline-after": "never-multi-line",
+    "no-descending-specificity": null
+  }
+}

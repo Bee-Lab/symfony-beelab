@@ -7,12 +7,14 @@
 /config/services_test.yaml  export-ignore
 /deploy.php                 export-ignore
 /docker-compose.yaml        export-ignore
+/.eslintrc.js               export-ignore
 /.git*                      export-ignore
 /Makefile                   export-ignore
-/package*                   export-ignore
+/package*.json              export-ignore
 /.php-cs-fixer.php          export-ignore
 /phpstan*.neon              export-ignore
 /phpunit.xml.dist           export-ignore
 /README.md                  export-ignore
+/.stylelintrc.json          export-ignore
 /tests                      export-ignore
 /webpack.config.js          export-ignore

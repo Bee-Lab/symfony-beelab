@@ -19,11 +19,11 @@
         "ext-iconv": "*",
         "ext-intl": "*",
         "ext-mbstring": "*",
-        "symfony/flex": "^1.12"
+        "symfony/flex": "^1.13"
     },
     "flex-require": {
-        "doctrine/doctrine-bundle": "^2.3",
-        "doctrine/orm": "^2.8",
+        "doctrine/doctrine-bundle": "^2.4",
+        "doctrine/orm": "^2.9",
         "ramsey/uuid-doctrine": "^1.6",
         "symfony/asset": "^4.4",
         "symfony/console": "^4.4",
@@ -40,6 +40,7 @@
         "symfony/yaml": "^4.4"
     },
     "replace": {
+        "doctrine/annotations": "^1.13",
         "paragonie/random_compat": "*",
         "symfony/polyfill-ctype": "*",
         "symfony/polyfill-iconv": "*",
@@ -52,8 +53,8 @@
         "symfony/polyfill-php73": "*"
     },
     "flex-require-dev": {
-        "beelab/test-bundle": "^5.2",
-        "dama/doctrine-test-bundle": "^6.5",
+        "beelab/test-bundle": "^5.3",
+        "dama/doctrine-test-bundle": "^6.6",
         "deployer/dist": "^7.0@beta",
         "doctrine/doctrine-fixtures-bundle": "^3.4",
         "phpunit/phpunit": "^9.5",

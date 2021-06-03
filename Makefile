@@ -5,7 +5,7 @@ EXEC = docker-compose exec
 
 args = `arg="$(filter-out $@,$(MAKECMDGOALS))" && echo $${arg:-${1}}`
 
-.PHONY: help start stop console dbupdate load test coverage update asset cs stan npm deploy
+.PHONY: help start stop console dbupdate load test coverage update asset lint cs stan stylelint eslint npm deploy
 
 help:
 	@awk 'BEGIN {FS = ":.*##"; printf "Use: make \033[36m<target>\033[0m\n"} /^[a-zA-Z_-]+:.*?##/ { printf "  \033[36m%-10s\033[0m %s\n", $$1, $$2 } /^##@/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 5) } ' $(MAKEFILE_LIST)
@@ -41,11 +41,23 @@ update: ## update vendors
 asset: ## compile assets
 	${EXEC} php node_modules/.bin/encore dev --watch
 
-cs: ## execute fix coding standard  (requires php-cs-fixer locally installed)
+cs: ## execute fix coding standard (requires php-cs-fixer locally installed)
 	${EXEC} -e COLUMNS=80 php php-cs-fixer fix -v
 
 stan: ## execute static analysis (requires phpstan locally installed)
 	${EXEC} php phpstan --memory-limit=-1 analyse
+
+stylelint: ## execute style linting
+	${EXEC} php npm run stylelint
+
+eslint: ## execute js linting
+	${EXEC} php npm run eslint
+
+lint: ## make all linting (cs, stan, stylelint, eslint)
+	- make cs
+	- make stan
+	- make stylelint
+	- make eslint
 
 npm: ## install frontend dependencies
 	${EXEC} php npm install
