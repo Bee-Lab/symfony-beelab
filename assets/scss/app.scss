@@ -27,7 +27,7 @@ footer {
         margin-bottom: 0;
     }
 
-    a[href]:after {
+    a[href]::after {
         content: none;
     }
 }

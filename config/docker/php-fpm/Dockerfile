@@ -1,5 +1,5 @@
 FROM composer:2 AS composer
-FROM php:7.4-fpm
+FROM php:8.0-fpm
 
 ARG HOST_UID
 
@@ -14,15 +14,12 @@ RUN apt update && apt install -y --no-install-recommends zlib1g-dev libicu-dev g
 RUN docker-php-ext-install pdo pdo_mysql intl mysqli iconv xsl
 
 # Install xdebug
-RUN pecl install xdebug-2.9.8 && docker-php-ext-enable xdebug
+RUN pecl install xdebug-3.0.4 && docker-php-ext-enable xdebug
 RUN { \
       echo 'error_reporting = E_ALL'; \
       echo 'display_startup_errors = On'; \
       echo 'display_errors = On'; \
-      echo 'xdebug.remote_enable=1'; \
-      echo 'xdebug.remote_connect_back=1'; \
-      echo 'xdebug.idekey="PHPSTORM"'; \
-      echo 'xdebug.remote_port=9003'; \
+      echo 'xdebug.mode=debug'; \
       echo 'xdebug.file_link_format=xdebug://%f@%l'; \
     } >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
@@ -43,11 +40,11 @@ COPY --from=composer /usr/bin/composer /usr/local/bin/composer
 
 # Install phpmyadmin
 RUN set -ex; \
-    curl -k --output phpMyAdmin.tar.xz --location https://files.phpmyadmin.net/phpMyAdmin/5.1.0/phpMyAdmin-5.1.0-all-languages.tar.xz; \
+    curl -k --output phpMyAdmin.tar.xz --location https://files.phpmyadmin.net/phpMyAdmin/5.1.1/phpMyAdmin-5.1.1-all-languages.tar.xz; \
     tar -xf phpMyAdmin.tar.xz -C /usr/src; \
     rm -r phpMyAdmin.tar.xz; \
-    mv /usr/src/phpMyAdmin-5.1.0-all-languages /usr/src/phpmyadmin; \
-    rm -rf /usr/src/phpmyadmin/setup/ /usr/src/phpmyadmin/examples/ /usr/src/phpmyadmin/test/ /usr/src/phpmyadmin/po/ /usr/src/phpmyadmin/composer.json /usr/src/phpmyadmin/RELEASE-DATE-5.1.0; \
+    mv /usr/src/phpMyAdmin-5.1.1-all-languages /usr/src/phpmyadmin; \
+    rm -rf /usr/src/phpmyadmin/setup/ /usr/src/phpmyadmin/examples/ /usr/src/phpmyadmin/test/ /usr/src/phpmyadmin/po/ /usr/src/phpmyadmin/composer.json /usr/src/phpmyadmin/RELEASE-DATE-5.1.1; \
 sed -i "s@define('CONFIG_DIR'.*@define('CONFIG_DIR', '/usr/src/phpmyadmin/');@" /usr/src/phpmyadmin/libraries/vendor_config.php; \
 cp /usr/src/phpmyadmin/config.sample.inc.php /usr/src/phpmyadmin/config.inc.php; \
 sed -i "s/'localhost'/'database'/" /usr/src/phpmyadmin/config.inc.php; \
@@ -67,4 +64,4 @@ RUN git config --global core.excludesfile ~/.gitignore
 
 COPY php-fpm.conf /etc/php-fpm.conf
 
-WORKDIR /user/app
+WORKDIR /user/customize

@@ -48,7 +48,7 @@ task('deploy:db:to_remote_copy', static function (): void {
 });
 desc('Precompile assets');
 task('deploy:assets:build_local', static function (): void {
-    runLocally('./node_modules/.bin/encore production');
+    runLocally('npm run build');
     runLocally('tar zcvf assets.tgz public/build/');
     runLocally('mv assets.tgz public/build/');
 });

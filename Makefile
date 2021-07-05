@@ -21,25 +21,25 @@ console: ## execute console with possible parameters
 
 dbupdate: ## update database
 	${EXEC} php console do:da:cr -n --if-not-exists
-	${EXEC} phpunit console do:da:cr -n --if-not-exists
+	${EXEC} -e APP_ENV=test php console do:da:cr -n --if-not-exists
 	${EXEC} php console do:c:clear-m
 	${EXEC} php console do:s:u --force
-	${EXEC} phpunit console do:s:u --force
+	${EXEC} -e APP_ENV=test php console do:s:u --force
 
 load: ## load fixtures
-	${EXEC} phpunit console do:fi:lo -n
+	${EXEC} -e APP_ENV=test php console do:fi:lo -n
 
 test: ## execute tests
-	${EXEC} phpunit phpunit --stop-on-failure
+	${EXEC} php php -d xdebug.mode=off bin/phpunit --stop-on-failure
 
 coverage: ## execute tests with coverage
-	${EXEC} phpunit phpdbg -qrr bin/phpunit --coverage-html var/build
+	${EXEC} -e XDEBUG_MODE=coverage php phpunit --coverage-html var/build
 
 update: ## update vendors
 	${EXEC} php composer update
 
 asset: ## compile assets
-	${EXEC} php node_modules/.bin/encore dev --watch
+	${EXEC} php npm run watch
 
 cs: ## execute fix coding standard (requires php-cs-fixer locally installed)
 	${EXEC} -e COLUMNS=80 php php-cs-fixer fix -v

@@ -14,7 +14,7 @@
         }
     ],
     "require": {
-        "php": "^7.4 || ^8.0",
+        "php": "^8.0",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-intl": "*",
@@ -25,19 +25,19 @@
         "doctrine/doctrine-bundle": "^2.4",
         "doctrine/orm": "^2.9",
         "ramsey/uuid-doctrine": "^1.6",
-        "symfony/asset": "^4.4",
-        "symfony/console": "^4.4",
-        "symfony/form": "^4.4",
-        "symfony/framework-bundle": "^4.4",
-        "symfony/mailer": "^4.4",
-        "symfony/messenger": "^4.4",
+        "symfony/asset": "^5.3",
+        "symfony/console": "^5.3",
+        "symfony/form": "^5.3",
+        "symfony/framework-bundle": "^5.3",
+        "symfony/mailer": "^5.3",
+        "symfony/messenger": "^5.3",
         "symfony/monolog-bundle": "^3.7",
-        "symfony/security-bundle": "^4.4",
-        "symfony/translation": "^4.4",
-        "symfony/twig-bundle": "^4.4",
-        "symfony/validator": "^4.4",
-        "symfony/web-link": "^4.4",
-        "symfony/yaml": "^4.4"
+        "symfony/security-bundle": "^5.3",
+        "symfony/translation": "^5.3",
+        "symfony/twig-bundle": "^5.3",
+        "symfony/validator": "^5.3",
+        "symfony/web-link": "^5.3",
+        "symfony/yaml": "^5.3"
     },
     "replace": {
         "doctrine/annotations": "^1.13",
@@ -50,7 +50,8 @@
         "symfony/polyfill-intl-normalizer": "*",
         "symfony/polyfill-mbstring": "*",
         "symfony/polyfill-php72": "*",
-        "symfony/polyfill-php73": "*"
+        "symfony/polyfill-php73": "*",
+        "symfony/polyfill-php80": "*"
     },
     "flex-require-dev": {
         "beelab/test-bundle": "^5.3",
@@ -58,10 +59,9 @@
         "deployer/dist": "^7.0@beta",
         "doctrine/doctrine-fixtures-bundle": "^3.4",
         "phpunit/phpunit": "^9.5",
-        "symfony/debug-bundle": "^4.4",
-        "symfony/phpunit-bridge": "^5.2",
-        "symfony/stopwatch": "^4.4",
-        "symfony/web-profiler-bundle": "^4.4"
+        "symfony/debug-bundle": "^5.3",
+        "symfony/phpunit-bridge": "^5.3",
+        "symfony/profiler-pack": "^1.0"
     },
     "config": {
         "bin-dir": "bin",
@@ -70,7 +70,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": true,
-            "require": "4.4.*"
+            "require": "^5.3"
         }
     },
     "autoload": {

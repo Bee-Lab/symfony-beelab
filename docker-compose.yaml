@@ -12,13 +12,13 @@ services:
             args:
                 HOST_UID: 1000
         volumes:
-            - ./:/user/app:delegated
+            - ./:/user/customize:delegated
             - $HOME/.bashrc:/user/.bashrc:delegated
             - $HOME/.composer/cache:/user/.composer/cache:delegated
             - $HOME/.gitignore:/user/.gitignore:delegated
             - $HOME/.ssh:/user/.ssh:delegated
             - $HOME/.vimrc:/user/.vimrc:delegated
-        working_dir: /user/app
+        working_dir: /user/customize
         ports:
             - 9000:9000
         links:
@@ -30,6 +30,7 @@ services:
             - APP_ENV=dev
             - APP_DEBUG=1
             - APP_DATABASE_URL=mysql://root:root@database/customize
+            - APP_TEST_DATABASE_URL=mysql://root:root@database/customize_test
             - APP_MAILER_URL=null://127.0.0.1
             - APP_SECRET=ThisIsNotReallySecretButOK
     nginx:
@@ -39,22 +40,5 @@ services:
         links:
             - php
         volumes:
-            - ./:/user/app
-    phpunit:
-        build:
-            context: config/docker/php-cli
-            args:
-                HOST_UID: 1000
-        volumes:
-            - ./:/user/app:delegated
-        working_dir: /user/app
-        tty: true
-        links:
-            - database
-        environment:
-            - PATH=./bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-            - APP_ENV=test
-            - APP_DEBUG=1
-            - APP_DATABASE_URL=mysql://root:root@database/customize_test
-            - APP_MAILER_URL=null://127.0.0.1
-            - APP_SECRET=ThisIsNotReallySecretButOK
+            - ./:/user/customize
+

@@ -4,9 +4,7 @@
     {%- set type = type|default('date') -%}
     <div class="input-group">
         {{- block('form_widget_simple') -}}
-        <div class="input-group-append">
-            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-        </div>
+        <span class="input-group-text"><i class="far fa-fw fa-calendar-alt"></i></span>
     </div>
 {%- endblock date_widget %}
 
@@ -14,9 +12,7 @@
     {%- set type = type|default('time') -%}
     <div class="input-group">
         {{- block('form_widget_simple') -}}
-        <div class="input-group-append">
-            <span class="input-group-text"><i class="far fa-clock"></i></span>
-        </div>
+        <span class="input-group-text"><i class="far fa-fw fa-clock"></i></span>
     </div>
 {%- endblock time_widget %}
 
@@ -24,9 +20,7 @@
     {%- set type = type|default('email') -%}
     <div class="input-group">
         {{- block('form_widget_simple') -}}
-        <div class="input-group-append">
-            <span class="input-group-text"><i class="far fa-envelope"></i></span>
-        </div>
+        <span class="input-group-text"><i class="far fa-fw fa-envelope"></i></span>
     </div>
 {%- endblock %}
 
@@ -34,18 +28,14 @@
     {%- set type = type|default('tel') -%}
     <div class="input-group">
         {{- block('form_widget_simple') -}}
-        <div class="input-group-append">
-            <span class="input-group-text"><i class="fas fa-phone"></i></span>
-        </div>
+        <span class="input-group-text"><i class="fas fa-fw fa-phone"></i></span>
     </div>
 {%- endblock %}
 
 {% block url_widget -%}
     <div class="input-group">
         {{- block('form_widget_simple') -}}
-        <div class="input-group-append">
-            <span class="input-group-text"><i class="fas fa-globe"></i></span>
-        </div>
+        <span class="input-group-text"><i class="fas fa-fw fa-globe"></i></span>
     </div>
 {%- endblock %}
 
@@ -53,8 +43,6 @@
     {%- set type = type|default('password') -%}
     <div class="input-group">
         {{- block('form_widget_simple') -}}
-        <div class="input-group-append">
-            <span class="input-group-text"><i class="fa fa-lock"></i></span>
-        </div>
+        <span class="input-group-text"><i class="fas fa-fw fa-lock"></i></span>
     </div>
 {%- endblock %}
