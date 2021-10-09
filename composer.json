@@ -19,11 +19,11 @@
         "ext-iconv": "*",
         "ext-intl": "*",
         "ext-mbstring": "*",
-        "symfony/flex": "^1.13"
+        "symfony/flex": "^1.16"
     },
     "flex-require": {
         "doctrine/doctrine-bundle": "^2.4",
-        "doctrine/orm": "^2.9",
+        "doctrine/orm": "^2.10",
         "ramsey/uuid-doctrine": "^1.6",
         "symfony/asset": "^5.3",
         "symfony/console": "^5.3",

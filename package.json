@@ -9,13 +9,13 @@
     "stylelint": "stylelint -f verbose ./assets/scss/*.scss"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.3",
-    "@popperjs/core": "^2.9.2",
-    "bootstrap": "^5.0.2"
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "@popperjs/core": "^2.10.2",
+    "bootstrap": "^5.1.2"
   },
   "devDependencies": {
-    "@symfony/webpack-encore": "^1.5.0",
-    "eslint": "^7.29.0",
+    "@symfony/webpack-encore": "^1.6.1",
+    "eslint": "^7.32.0",
     "node-sass": "^4.14.1",
     "sass-loader": "^10.2.0",
     "stylelint": "^13.13.1",
