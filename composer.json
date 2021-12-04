@@ -19,28 +19,28 @@
         "ext-iconv": "*",
         "ext-intl": "*",
         "ext-mbstring": "*",
-        "symfony/flex": "^1.16"
+        "symfony/flex": "^1.17"
     },
     "flex-require": {
         "doctrine/doctrine-bundle": "^2.4",
         "doctrine/orm": "^2.10",
         "ramsey/uuid-doctrine": "^1.6",
-        "symfony/asset": "^5.3",
-        "symfony/console": "^5.3",
-        "symfony/form": "^5.3",
-        "symfony/framework-bundle": "^5.3",
-        "symfony/mailer": "^5.3",
-        "symfony/messenger": "^5.3",
+        "symfony/asset": "^5.4",
+        "symfony/console": "^5.4",
+        "symfony/form": "^5.4",
+        "symfony/framework-bundle": "^5.4",
+        "symfony/mailer": "^5.4",
+        "symfony/messenger": "^5.4",
         "symfony/monolog-bundle": "^3.7",
-        "symfony/security-bundle": "^5.3",
-        "symfony/translation": "^5.3",
-        "symfony/twig-bundle": "^5.3",
-        "symfony/validator": "^5.3",
-        "symfony/web-link": "^5.3",
-        "symfony/yaml": "^5.3"
+        "symfony/security-bundle": "^5.4",
+        "symfony/translation": "^5.4",
+        "symfony/twig-bundle": "^5.4",
+        "symfony/validator": "^5.4",
+        "symfony/web-link": "^5.4",
+        "symfony/yaml": "^5.4"
     },
     "replace": {
-        "doctrine/annotations": "^1.13",
+        "doctrine/annotations": "^1.13.1",
         "paragonie/random_compat": "*",
         "symfony/polyfill-ctype": "*",
         "symfony/polyfill-iconv": "*",
@@ -54,13 +54,13 @@
         "symfony/polyfill-php80": "*"
     },
     "flex-require-dev": {
-        "beelab/test-bundle": "^5.3",
+        "beelab/test-bundle": "^5.4",
         "dama/doctrine-test-bundle": "^6.6",
-        "deployer/dist": "^7.0@beta",
+        "deployer/dist": "^7.0@rc",
         "doctrine/doctrine-fixtures-bundle": "^3.4",
         "phpunit/phpunit": "^9.5",
-        "symfony/debug-bundle": "^5.3",
-        "symfony/phpunit-bridge": "^5.3",
+        "symfony/debug-bundle": "^5.4",
+        "symfony/phpunit-bridge": "^5.4",
         "symfony/profiler-pack": "^1.0"
     },
     "config": {
@@ -70,7 +70,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": true,
-            "require": "^5.3"
+            "require": "^5.4"
         }
     },
     "autoload": {

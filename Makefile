@@ -53,11 +53,13 @@ stylelint: ## execute style linting
 eslint: ## execute js linting
 	${EXEC} php npm run eslint
 
-lint: ## make all linting (cs, stan, stylelint, eslint)
+lint: ## make all linting
 	- make cs
 	- make stan
 	- make stylelint
 	- make eslint
+	- make console lint:twig templates
+	- make console lint:yaml config
 
 npm: ## install frontend dependencies
 	${EXEC} php npm install
