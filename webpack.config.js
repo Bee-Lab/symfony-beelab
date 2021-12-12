@@ -19,7 +19,7 @@ Encore
     // allow sass/scss files to be processed
     .enableSassLoader()
 
-    // allow to debug sources in development
+    // allow debugging sources in development
     .enableSourceMaps(!Encore.isProduction())
 
     // create hashed filenames (e.g. app.abc123.css)

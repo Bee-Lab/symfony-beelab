@@ -22,7 +22,7 @@
         "symfony/flex": "^1.17"
     },
     "flex-require": {
-        "doctrine/doctrine-bundle": "^2.4",
+        "doctrine/doctrine-bundle": "^2.5",
         "doctrine/orm": "^2.10",
         "ramsey/uuid-doctrine": "^1.6",
         "symfony/asset": "^5.4",
@@ -60,7 +60,7 @@
         "doctrine/doctrine-fixtures-bundle": "^3.4",
         "phpunit/phpunit": "^9.5",
         "symfony/debug-bundle": "^5.4",
-        "symfony/phpunit-bridge": "^5.4",
+        "symfony/phpunit-bridge": "^6.0",
         "symfony/profiler-pack": "^1.0"
     },
     "config": {
