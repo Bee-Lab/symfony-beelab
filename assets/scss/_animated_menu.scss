@@ -20,7 +20,7 @@
     }
 
     span:nth-child(1), span:nth-child(3) {
-        transition: transform .35s ease-in-out;
+        transition: transform 0.35s ease-in-out;
     }
 
     &:not(.collapsed) {

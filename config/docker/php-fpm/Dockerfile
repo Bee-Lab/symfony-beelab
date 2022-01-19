@@ -3,7 +3,7 @@ FROM php:8.0-fpm
 
 ARG HOST_UID
 
-# Add git and unzip
+# Add system packages
 RUN apt update && apt install -y --no-install-recommends git unzip ssh
 
 # Set timezone
@@ -14,7 +14,7 @@ RUN apt update && apt install -y --no-install-recommends zlib1g-dev libicu-dev g
 RUN docker-php-ext-install pdo pdo_mysql intl mysqli iconv xsl
 
 # Install xdebug
-RUN pecl install xdebug-3.0.4 && docker-php-ext-enable xdebug
+RUN pecl install xdebug-3.1.2 && docker-php-ext-enable xdebug
 RUN { \
       echo 'error_reporting = E_ALL'; \
       echo 'display_startup_errors = On'; \
@@ -52,7 +52,7 @@ sed -i "s/'cookie'/'config'/" /usr/src/phpmyadmin/config.inc.php; \
 echo "\$cfg['Servers'][\$i]['password'] = 'root';\n\$cfg['TempDir'] = '/tmp';" >> /usr/src/phpmyadmin/config.inc.php;
 
 # Install nodejs
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && apt install -y --no-install-recommends nodejs
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - && apt install -y --no-install-recommends nodejs
 
 # Cleanup
 RUN apt remove --purge -y $BUILD_PACKAGES && rm -rf /var/lib/apt/lists/*

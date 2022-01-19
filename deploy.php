@@ -62,6 +62,7 @@ task('deploy:assets:upload', static function (): void {
 host('production')
     ->setHostname('myhost') // TODO set your hostname
     ->set('deploy_path', '~/{{application}}')
+    ->set('remote_user', 'myuser') // TODO set your username
     ->set('user', 'myuser') // TODO set your username
 ;
 

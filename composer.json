@@ -19,7 +19,7 @@
         "ext-iconv": "*",
         "ext-intl": "*",
         "ext-mbstring": "*",
-        "symfony/flex": "^1.17"
+        "symfony/flex": "^2.0"
     },
     "flex-require": {
         "doctrine/doctrine-bundle": "^2.5",
@@ -64,6 +64,9 @@
         "symfony/profiler-pack": "^1.0"
     },
     "config": {
+        "allow-plugins": {
+            "symfony/flex": true
+        },
         "bin-dir": "bin",
         "sort-packages": true
     },
