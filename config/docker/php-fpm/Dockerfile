@@ -14,7 +14,7 @@ RUN apt update && apt install -y --no-install-recommends zlib1g-dev libicu-dev g
 RUN docker-php-ext-install pdo pdo_mysql intl mysqli iconv xsl
 
 # Install xdebug
-RUN pecl install xdebug-3.1.2 && docker-php-ext-enable xdebug
+RUN pecl install xdebug-3.1.3 && docker-php-ext-enable xdebug
 RUN { \
       echo 'error_reporting = E_ALL'; \
       echo 'display_startup_errors = On'; \

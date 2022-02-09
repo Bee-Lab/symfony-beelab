@@ -19,11 +19,11 @@
         "ext-iconv": "*",
         "ext-intl": "*",
         "ext-mbstring": "*",
-        "symfony/flex": "^2.0"
+        "symfony/flex": "^2.1"
     },
     "flex-require": {
         "doctrine/doctrine-bundle": "^2.5",
-        "doctrine/orm": "^2.10",
+        "doctrine/orm": "^2.11",
         "ramsey/uuid-doctrine": "^1.6",
         "symfony/asset": "^5.4",
         "symfony/console": "^5.4",
@@ -55,7 +55,7 @@
     },
     "flex-require-dev": {
         "beelab/test-bundle": "^5.4",
-        "dama/doctrine-test-bundle": "^6.6",
+        "dama/doctrine-test-bundle": "^6.7",
         "deployer/dist": "^7.0@rc",
         "doctrine/doctrine-fixtures-bundle": "^3.4",
         "phpunit/phpunit": "^9.5",
