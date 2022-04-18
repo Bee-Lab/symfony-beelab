@@ -4,7 +4,7 @@ services:
         autoconfigure: true
 
     Infrastructure\:
-        resource: '../src/Infrastructure/*'
+        resource: '../src/Infrastructure'
         exclude: '../src/Infrastructure/{Kernel.php,Security/User/User.php}'
 
     #Application\Handler\:

@@ -22,9 +22,9 @@
         "symfony/flex": "^2.1"
     },
     "flex-require": {
-        "doctrine/doctrine-bundle": "^2.5",
+        "doctrine/doctrine-bundle": "^2.6",
         "doctrine/orm": "^2.11",
-        "ramsey/uuid-doctrine": "^1.6",
+        "ramsey/uuid-doctrine": "^1.8",
         "symfony/asset": "^5.4",
         "symfony/console": "^5.4",
         "symfony/form": "^5.4",
@@ -56,7 +56,7 @@
     "flex-require-dev": {
         "beelab/test-bundle": "^5.4",
         "dama/doctrine-test-bundle": "^6.7",
-        "deployer/dist": "^7.0@rc",
+        "deployer/deployer": "^7.0@rc",
         "doctrine/doctrine-fixtures-bundle": "^3.4",
         "phpunit/phpunit": "^9.5",
         "symfony/debug-bundle": "^5.4",
@@ -68,7 +68,10 @@
             "symfony/flex": true
         },
         "bin-dir": "bin",
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "symfony/runtime": true
+        }
     },
     "extra": {
         "symfony": {
@@ -78,7 +81,9 @@
     },
     "autoload": {
         "psr-4": {
-            "": "src/"
+            "Application\\": "src/Application/",
+            "Domain\\": "src/Domain/",
+            "Infrastructure\\": "src/Infrastructure/"
         }
     },
     "autoload-dev": {

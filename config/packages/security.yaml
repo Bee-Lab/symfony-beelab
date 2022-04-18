@@ -5,7 +5,7 @@ security:
         in_memory: { memory: ~ }
     firewalls:
         dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            pattern: ^/(_(error|profiler|wdt)|css|images|js)/
             security: false
         main:
             lazy: true

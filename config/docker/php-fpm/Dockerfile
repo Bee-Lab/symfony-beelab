@@ -1,5 +1,5 @@
-FROM composer:2 AS composer
-FROM php:8.0-fpm
+FROM composer:2.3 AS composer
+FROM php:8.1-fpm
 
 ARG HOST_UID
 
@@ -40,19 +40,19 @@ COPY --from=composer /usr/bin/composer /usr/local/bin/composer
 
 # Install phpmyadmin
 RUN set -ex; \
-    curl -k --output phpMyAdmin.tar.xz --location https://files.phpmyadmin.net/phpMyAdmin/5.1.1/phpMyAdmin-5.1.1-all-languages.tar.xz; \
+    curl -k --output phpMyAdmin.tar.xz --location https://files.phpmyadmin.net/phpMyAdmin/5.1.3/phpMyAdmin-5.1.3-all-languages.tar.xz; \
     tar -xf phpMyAdmin.tar.xz -C /usr/src; \
     rm -r phpMyAdmin.tar.xz; \
-    mv /usr/src/phpMyAdmin-5.1.1-all-languages /usr/src/phpmyadmin; \
-    rm -rf /usr/src/phpmyadmin/setup/ /usr/src/phpmyadmin/examples/ /usr/src/phpmyadmin/test/ /usr/src/phpmyadmin/po/ /usr/src/phpmyadmin/composer.json /usr/src/phpmyadmin/RELEASE-DATE-5.1.1; \
+    mv /usr/src/phpMyAdmin-5.1.3-all-languages /usr/src/phpmyadmin; \
+    rm -rf /usr/src/phpmyadmin/setup/ /usr/src/phpmyadmin/examples/ /usr/src/phpmyadmin/test/ /usr/src/phpmyadmin/po/ /usr/src/phpmyadmin/composer.json /usr/src/phpmyadmin/RELEASE-DATE-5.1.3; \
 sed -i "s@define('CONFIG_DIR'.*@define('CONFIG_DIR', '/usr/src/phpmyadmin/');@" /usr/src/phpmyadmin/libraries/vendor_config.php; \
 cp /usr/src/phpmyadmin/config.sample.inc.php /usr/src/phpmyadmin/config.inc.php; \
 sed -i "s/'localhost'/'database'/" /usr/src/phpmyadmin/config.inc.php; \
 sed -i "s/'cookie'/'config'/" /usr/src/phpmyadmin/config.inc.php; \
-echo "\$cfg['Servers'][\$i]['password'] = 'root';\n\$cfg['TempDir'] = '/tmp';" >> /usr/src/phpmyadmin/config.inc.php;
+echo "\$cfg['Servers'][\$i]['password'] = 'root';\n\$cfg['TempDir'] = '/tmp';\n\$cfg['RelationalDisplay'] = 'D';" >> /usr/src/phpmyadmin/config.inc.php;
 
 # Install nodejs
-RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - && apt install -y --no-install-recommends nodejs
+RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash - && apt install -y --no-install-recommends nodejs
 
 # Cleanup
 RUN apt remove --purge -y $BUILD_PACKAGES && rm -rf /var/lib/apt/lists/*
