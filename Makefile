@@ -45,7 +45,7 @@ cs: ## execute fix coding standard (requires php-cs-fixer locally installed)
 	${EXEC} -e COLUMNS=80 php php-cs-fixer fix -v
 
 stan: ## execute static analysis (requires phpstan locally installed)
-	${EXEC} php phpstan --memory-limit=-1 analyse
+	${EXEC} php phpstan analyse
 
 stylelint: ## execute style linting
 	${EXEC} php npm run stylelint

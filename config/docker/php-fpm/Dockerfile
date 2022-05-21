@@ -14,12 +14,13 @@ RUN apt update && apt install -y --no-install-recommends zlib1g-dev libicu-dev g
 RUN docker-php-ext-install pdo pdo_mysql intl mysqli iconv xsl
 
 # Install xdebug
-RUN pecl install xdebug-3.1.3 && docker-php-ext-enable xdebug
+RUN pecl install xdebug-3.1.4 && docker-php-ext-enable xdebug
 RUN { \
       echo 'error_reporting = E_ALL'; \
       echo 'display_startup_errors = On'; \
       echo 'display_errors = On'; \
       echo 'xdebug.mode=debug'; \
+      echo 'xdebug.discover_client_host=true'; \
       echo 'xdebug.file_link_format=xdebug://%f@%l'; \
     } >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
@@ -40,11 +41,11 @@ COPY --from=composer /usr/bin/composer /usr/local/bin/composer
 
 # Install phpmyadmin
 RUN set -ex; \
-    curl -k --output phpMyAdmin.tar.xz --location https://files.phpmyadmin.net/phpMyAdmin/5.1.3/phpMyAdmin-5.1.3-all-languages.tar.xz; \
+    curl -k --output phpMyAdmin.tar.xz --location https://files.phpmyadmin.net/phpMyAdmin/5.2.0/phpMyAdmin-5.2.0-all-languages.tar.xz; \
     tar -xf phpMyAdmin.tar.xz -C /usr/src; \
     rm -r phpMyAdmin.tar.xz; \
-    mv /usr/src/phpMyAdmin-5.1.3-all-languages /usr/src/phpmyadmin; \
-    rm -rf /usr/src/phpmyadmin/setup/ /usr/src/phpmyadmin/examples/ /usr/src/phpmyadmin/test/ /usr/src/phpmyadmin/po/ /usr/src/phpmyadmin/composer.json /usr/src/phpmyadmin/RELEASE-DATE-5.1.3; \
+    mv /usr/src/phpMyAdmin-5.2.0-all-languages /usr/src/phpmyadmin; \
+    rm -rf /usr/src/phpmyadmin/setup/ /usr/src/phpmyadmin/examples/ /usr/src/phpmyadmin/test/ /usr/src/phpmyadmin/po/ /usr/src/phpmyadmin/composer.json /usr/src/phpmyadmin/RELEASE-DATE-5.2.0; \
 sed -i "s@define('CONFIG_DIR'.*@define('CONFIG_DIR', '/usr/src/phpmyadmin/');@" /usr/src/phpmyadmin/libraries/vendor_config.php; \
 cp /usr/src/phpmyadmin/config.sample.inc.php /usr/src/phpmyadmin/config.inc.php; \
 sed -i "s/'localhost'/'database'/" /usr/src/phpmyadmin/config.inc.php; \

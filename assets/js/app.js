@@ -3,7 +3,7 @@ import Collapse from "bootstrap/js/src/collapse";
 import Dropdown from "bootstrap/js/src/dropdown";
 
 // alert
-let alerts = document.querySelectorAll("button.close");
+let alerts = document.querySelectorAll("button.btn-close");
 Array.from(alerts).map(alert => new Alert(alert));
 
 // collapse
