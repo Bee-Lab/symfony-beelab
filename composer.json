@@ -19,10 +19,10 @@
         "ext-iconv": "*",
         "ext-intl": "*",
         "ext-mbstring": "*",
-        "symfony/flex": "^2.1"
+        "symfony/flex": "^2.2"
     },
     "flex-require": {
-        "doctrine/doctrine-bundle": "^2.6",
+        "doctrine/doctrine-bundle": "^2.7",
         "doctrine/orm": "^2.12",
         "ramsey/uuid-doctrine": "^1.8",
         "symfony/asset": "^5.4",
@@ -54,23 +54,21 @@
     },
     "flex-require-dev": {
         "beelab/test-bundle": "^5.4",
-        "dama/doctrine-test-bundle": "^7.0",
-        "deployer/deployer": "^7.0@rc",
+        "dama/doctrine-test-bundle": "^7.1",
+        "deployer/deployer": "^7.0",
         "doctrine/doctrine-fixtures-bundle": "^3.4",
         "phpunit/phpunit": "^9.5",
         "symfony/debug-bundle": "^5.4",
-        "symfony/phpunit-bridge": "^6.0",
+        "symfony/phpunit-bridge": "^6.1",
         "symfony/profiler-pack": "^1.0"
     },
     "config": {
         "allow-plugins": {
-            "symfony/flex": true
+            "symfony/flex": true,
+            "symfony/runtime": true
         },
         "bin-dir": "bin",
-        "sort-packages": true,
-        "allow-plugins": {
-            "symfony/runtime": true
-        }
+        "sort-packages": true
     },
     "extra": {
         "symfony": {
