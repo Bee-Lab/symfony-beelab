@@ -23,7 +23,7 @@
     },
     "flex-require": {
         "doctrine/doctrine-bundle": "^2.7",
-        "doctrine/orm": "^2.12",
+        "doctrine/orm": "^2.13",
         "ramsey/uuid-doctrine": "^1.8",
         "symfony/asset": "^5.4",
         "symfony/console": "^5.4",
