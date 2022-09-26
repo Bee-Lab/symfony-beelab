@@ -1,4 +1,4 @@
-FROM composer:2.3 AS composer
+FROM composer:2.4 AS composer
 FROM php:8.1-fpm
 
 ARG HOST_UID
