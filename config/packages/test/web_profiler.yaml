@@ -1,7 +1,0 @@
-framework:
-    profiler:
-        collect: false
-
-web_profiler:
-    toolbar: false
-

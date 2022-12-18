@@ -59,7 +59,7 @@
         "doctrine/doctrine-fixtures-bundle": "^3.4",
         "phpunit/phpunit": "^9.5",
         "symfony/debug-bundle": "^5.4",
-        "symfony/phpunit-bridge": "^6.1",
+        "symfony/phpunit-bridge": "^6.2",
         "symfony/profiler-pack": "^1.0"
     },
     "config": {
