@@ -2,8 +2,6 @@ version: '3.8'
 services:
     database:
         image: mysql:8.0
-        ports:
-            - "3306:3306"
         environment:
             - MYSQL_ROOT_PASSWORD=root
     php:
@@ -19,8 +17,6 @@ services:
             - $HOME/.ssh:/user/.ssh:delegated
             - $HOME/.vimrc:/user/.vimrc:delegated
         working_dir: /user/customize
-        ports:
-            - "9000:9000"
         links:
             - database
         environment:
