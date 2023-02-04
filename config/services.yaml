@@ -1,0 +1,14 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    Infrastructure\:
+        resource: '../src/Infrastructure'
+        exclude: '../src/Infrastructure/{Kernel.php,Security/User/User.php}'
+
+    #Application\Handler\:
+    #    resource: '../src/Application/Handler'
+    #    exclude: '../src/Application/Handler/*/Abstract*'
+    #    tags: ['messenger.message_handler']
+

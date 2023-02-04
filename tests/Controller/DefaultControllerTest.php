@@ -7,11 +7,11 @@ use Beelab\TestBundle\Test\WebTestCase;
 /**
  * @group functional
  */
-class DefaultControllerTest extends WebTestCase
+final class DefaultControllerTest extends WebTestCase
 {
-    public function testHomepage()
+    public function testHomepage(): void
     {
-        $this->client->request('GET', '/');
-        $this->assertTrue($this->client->getResponse()->isOk());
+        self::$client->request('GET', '/');
+        self::assertResponseIsSuccessful();
     }
 }
