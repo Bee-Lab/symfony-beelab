@@ -1,5 +1,4 @@
 parameters:
-    inferPrivatePropertyTypeFromConstructor: true
     level: 8
     paths:
         - src

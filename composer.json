@@ -22,7 +22,7 @@
         "symfony/flex": "^2.2"
     },
     "flex-require": {
-        "doctrine/doctrine-bundle": "^2.8",
+        "doctrine/doctrine-bundle": "^2.9",
         "doctrine/orm": "^2.14",
         "ramsey/uuid-doctrine": "^1.8",
         "symfony/asset": "^5.4",
@@ -40,8 +40,6 @@
         "symfony/yaml": "^5.4"
     },
     "replace": {
-        "doctrine/annotations": "^1.13.1",
-        "paragonie/random_compat": "*",
         "symfony/polyfill-ctype": "*",
         "symfony/polyfill-iconv": "*",
         "symfony/polyfill-intl-grapheme": "*",
@@ -55,10 +53,10 @@
     },
     "flex-require-dev": {
         "beelab/test-bundle": "^5.4",
-        "dama/doctrine-test-bundle": "^7.1",
-        "deployer/deployer": "^7.1",
+        "dama/doctrine-test-bundle": "^7.2",
+        "deployer/deployer": "^7.3",
         "doctrine/doctrine-fixtures-bundle": "^3.4",
-        "phpunit/phpunit": "^9.5",
+        "phpunit/phpunit": "^9.6",
         "symfony/debug-bundle": "^5.4",
         "symfony/phpunit-bridge": "^6.2",
         "symfony/profiler-pack": "^1.0"
