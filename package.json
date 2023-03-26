@@ -9,18 +9,20 @@
     "stylelint": "stylelint -f verbose ./assets/scss/*.scss"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^6.2.1",
-    "@popperjs/core": "^2.11.6",
+    "@fortawesome/fontawesome-free": "^6.3.0",
+    "@popperjs/core": "^2.11.7",
     "bootstrap": "^5.2.3"
   },
   "devDependencies": {
-    "@symfony/webpack-encore": "^3.1.0",
-    "eslint": "^8.33.0",
-    "sass": "^1.58.0",
-    "sass-loader": "^13.2.0",
-    "stylelint": "^14.16.1",
-    "stylelint-config-standard": "^29.0.0",
-    "stylelint-config-standard-scss": "^6.1.0"
+    "@babel/core": "^7.21.3",
+    "@babel/preset-env": "^7.20.2",
+    "@symfony/webpack-encore": "^4.2.0",
+    "eslint": "^8.36.0",
+    "sass": "^1.60.0",
+    "sass-loader": "^13.2.1",
+    "stylelint": "^15.3.0",
+    "stylelint-config-standard": "^31.0.0",
+    "stylelint-config-standard-scss": "^7.0.1"
   },
   "author": "Massimiliano Arione",
   "homepage": "https://github.com/bee-lab"

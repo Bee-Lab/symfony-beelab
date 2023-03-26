@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- https://phpunit.readthedocs.io/en/9.5/configuration.html -->
+<!-- https://phpunit.readthedocs.io/en/9.6/configuration.html -->
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.5/phpunit.xsd"
-    backupGlobals="false"
+    xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
     bootstrap="vendor/autoload.php"
-    cacheResult="true"
     colors="true"
 >
     <testsuites>
@@ -22,7 +20,7 @@
         <env name="SYMFONY_DEPRECATIONS_HELPER" value="max[self]=0"/>
     </php>
 
-    <coverage>
+    <coverage processUncoveredFiles="true">
         <include>
             <directory>src</directory>
         </include>

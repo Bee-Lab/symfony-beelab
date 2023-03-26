@@ -23,17 +23,17 @@ dbupdate: ## update database
 	${EXEC} php console do:da:cr -n --if-not-exists
 	${EXEC} -e APP_ENV=test php console do:da:cr -n --if-not-exists
 	${EXEC} php console do:c:clear-m
-	${EXEC} php console do:s:u --force
-	${EXEC} -e APP_ENV=test php console do:s:u --force
+	${EXEC} php console do:s:u --force --complete
+	${EXEC} -e APP_ENV=test php console do:s:u --force --complete
 
 load: ## load fixtures
 	${EXEC} -e APP_ENV=test php console do:fi:lo -n
 
 test: ## execute tests
-	${EXEC} php php -d xdebug.mode=off bin/phpunit --stop-on-failure
+	${EXEC} -e XDEBUG_MODE=off php bin/phpunit --stop-on-defect
 
 coverage: ## execute tests with coverage
-	${EXEC} -e XDEBUG_MODE=coverage php phpunit --coverage-html var/build
+	${EXEC} -e XDEBUG_MODE=coverage php bin/phpunit --coverage-html var/build
 
 update: ## update vendors
 	${EXEC} php composer update
@@ -42,10 +42,10 @@ asset: ## compile assets
 	${EXEC} php npm run watch
 
 cs: ## execute fix coding standard (requires php-cs-fixer locally installed)
-	${EXEC} -e COLUMNS=80 php php-cs-fixer fix -v
+	${EXEC} -e XDEBUG_MODE=off -e COLUMNS=80 php php-cs-fixer fix -v
 
 stan: ## execute static analysis (requires phpstan locally installed)
-	${EXEC} php phpstan analyse
+	${EXEC} -e XDEBUG_MODE=off php bin/phpstan analyse -v
 
 stylelint: ## execute style linting
 	${EXEC} php npm run stylelint

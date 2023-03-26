@@ -2,7 +2,7 @@
 
 namespace Deployer;
 
-require 'recipe/symfony.php';
+require_once 'recipe/symfony.php';
 
 set('application', 'customize');
 set('repository', 'git@bitbucket.org:garak/{{application}}.git');
@@ -17,7 +17,7 @@ desc('Update database');
 task('deploy:db:update', static function (): void {
     $url = run('grep APP_DATABASE_URL /etc/nginx/sites-available/{{application}}');
     \preg_match('/(mysql:\/\/.*[^;])/', $url, $matches);
-    run('APP_DATABASE_URL=\''.$matches[0].'\' {{bin/console}} doctrine:schema:update --force {{console_options}}');
+    run('APP_DATABASE_URL=\''.$matches[0].'\' {{bin/console}} doctrine:schema:update --force --complete {{console_options}}');
 });
 
 desc('Copy remote database to local');
@@ -33,6 +33,7 @@ task('deploy:db:from_remote_copy', static function (): void {
     runLocally('mysql -u'.$matches[1].' -p'.$matches[2].' -h'.$matches[3].' -D'.$matches[4].' < '.$name);
     runLocally('rm '.$name);
 });
+
 desc('Copy local database to remote');
 task('deploy:db:to_remote_copy', static function (): void {
     $url1 = runLocally('env | grep APP_DATABASE_URL');
@@ -46,12 +47,14 @@ task('deploy:db:to_remote_copy', static function (): void {
     run('mysql -u'.$matches[1].' -p'.$matches[2].' -h'.$matches[3].' -D'.$matches[4].' < /tmp/'.$name);
     run('rm /tmp/'.$name);
 });
+
 desc('Precompile assets');
 task('deploy:assets:build_local', static function (): void {
     runLocally('npm run build');
     runLocally('tar zcvf assets.tgz public/build/');
     runLocally('mv assets.tgz public/build/');
 });
+
 desc('Upload precompiled assets');
 task('deploy:assets:upload', static function (): void {
     runLocally('scp public/build/assets.tgz {{user}}@{{hostname}}:{{deploy_path}}');
