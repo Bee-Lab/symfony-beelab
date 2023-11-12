@@ -1,5 +1,5 @@
-FROM composer:2.5 AS composer
-FROM php:8.1-fpm
+FROM composer:2.6 AS composer
+FROM php:8.2-fpm
 
 ARG HOST_UID
 
@@ -9,12 +9,12 @@ RUN apt update && apt install -y --no-install-recommends git unzip ssh
 # Set timezone
 RUN rm /etc/localtime && ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
 
-# Install PHP extensions
-RUN apt update && apt install -y --no-install-recommends zlib1g-dev libicu-dev g++ vim default-mysql-client libxslt1-dev libxrender1 libxext6 libfontconfig libjpeg-dev libonig-dev
+# Install extensions
+RUN apt update && apt install -y --no-install-recommends zlib1g-dev libicu-dev g++ vim default-mysql-client libxslt1-dev libxrender1 libxext6 libfontconfig libjpeg-dev libonig-dev nodejs npm
 RUN docker-php-ext-install pdo pdo_mysql intl mysqli iconv xsl
 
 # Install xdebug
-RUN pecl install xdebug-3.2.1 && docker-php-ext-enable xdebug
+RUN pecl install xdebug-3.2.2 && docker-php-ext-enable xdebug
 RUN { \
       echo 'error_reporting = E_ALL'; \
       echo 'display_startup_errors = On'; \
@@ -51,9 +51,6 @@ cp /usr/src/phpmyadmin/config.sample.inc.php /usr/src/phpmyadmin/config.inc.php;
 sed -i "s/'localhost'/'database'/" /usr/src/phpmyadmin/config.inc.php; \
 sed -i "s/'cookie'/'config'/" /usr/src/phpmyadmin/config.inc.php; \
 echo "\$cfg['Servers'][\$i]['password'] = 'root';\n\$cfg['TempDir'] = '/tmp';\n\$cfg['RelationalDisplay'] = 'D';" >> /usr/src/phpmyadmin/config.inc.php;
-
-# Install nodejs
-RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash - && apt install -y --no-install-recommends nodejs
 
 # Cleanup
 RUN apt remove --purge -y $BUILD_PACKAGES && rm -rf /var/lib/apt/lists/*

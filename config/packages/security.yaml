@@ -1,11 +1,10 @@
 security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
-    enable_authenticator_manager: true
     providers:
         in_memory: { memory: ~ }
     firewalls:
         dev:
-            pattern: ^/(_(error|profiler|wdt)|css|images|js)/
+            pattern: ^/(_(error|profiler|wdt)|css|img|js)/
             security: false
         main:
             lazy: true

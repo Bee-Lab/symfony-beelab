@@ -1,0 +1,14 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Errore {{ exception.statusCode }} - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <h2>Errore {{ exception.statusCode }}</h2>
+    <p class="lead">
+        Siamo spiacenti, si è verificato un errore.
+        Se dovesse persistere, si prega di contattare l'amministratore.
+    </p>
+    <p class="text-muted text-right small">
+        {{ exception.statusCode == 404 ? 'Risorsa non trovata' : exception.message }}
+    </p>
+{% endblock %}

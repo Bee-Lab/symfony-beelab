@@ -10,7 +10,7 @@ set('git_tty', true);
 set('keep_releases', 2);
 set('shared_files', []);
 set('shared_dirs', ['var/log']);
-set('writable_dirs', ['var']);
+set('writable_dirs', ['var', 'var/log']);
 set('release_name', static fn (): string => \date('ymdHi'));
 
 desc('Update database');
@@ -51,14 +51,14 @@ task('deploy:db:to_remote_copy', static function (): void {
 desc('Precompile assets');
 task('deploy:assets:build_local', static function (): void {
     runLocally('npm run build');
-    runLocally('tar zcvf assets.tgz public/build/');
+    runLocally('tar zcf assets.tgz public/build/');
     runLocally('mv assets.tgz public/build/');
 });
 
 desc('Upload precompiled assets');
 task('deploy:assets:upload', static function (): void {
     runLocally('scp public/build/assets.tgz {{user}}@{{hostname}}:{{deploy_path}}');
-    run('mv {{deploy_path}}/assets.tgz {{release_path}}; cd {{release_path}}; tar zxvf assets.tgz; rm assets.tgz');
+    run('mv {{deploy_path}}/assets.tgz {{release_path}}; cd {{release_path}}; tar zxf assets.tgz; rm assets.tgz');
     runLocally('rm public/build/assets.tgz');
 });
 

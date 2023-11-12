@@ -14,17 +14,17 @@
         }
     ],
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-intl": "*",
         "ext-mbstring": "*",
-        "symfony/flex": "^2.2"
+        "symfony/flex": "^2.4"
     },
     "flex-require": {
-        "doctrine/doctrine-bundle": "^2.9",
-        "doctrine/orm": "^2.15",
-        "ramsey/uuid-doctrine": "^1.8",
+        "doctrine/doctrine-bundle": "^2.10",
+        "doctrine/orm": "^2.16",
+        "ramsey/uuid-doctrine": "^2.0",
         "symfony/asset": "^5.4",
         "symfony/console": "^5.4",
         "symfony/form": "^5.4",
@@ -58,7 +58,7 @@
         "doctrine/doctrine-fixtures-bundle": "^3.4",
         "phpunit/phpunit": "^9.6",
         "symfony/debug-bundle": "^5.4",
-        "symfony/phpunit-bridge": "^6.2",
+        "symfony/phpunit-bridge": "^6.3",
         "symfony/profiler-pack": "^1.0"
     },
     "config": {
@@ -79,7 +79,8 @@
         "psr-4": {
             "Application\\": "src/Application/",
             "Domain\\": "src/Domain/",
-            "Infrastructure\\": "src/Infrastructure/"
+            "Infrastructure\\": "src/Infrastructure/",
+            "Presentation\\": "src/Presentation/"
         }
     },
     "autoload-dev": {
