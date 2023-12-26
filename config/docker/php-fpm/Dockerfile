@@ -9,7 +9,7 @@ RUN apt update && apt install -y --no-install-recommends git unzip ssh
 # Set timezone
 RUN rm /etc/localtime && ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
 
-# Install extensions
+# Install deps
 RUN apt update && apt install -y --no-install-recommends zlib1g-dev libicu-dev g++ vim default-mysql-client libxslt1-dev libxrender1 libxext6 libfontconfig libjpeg-dev libonig-dev nodejs npm
 RUN docker-php-ext-install pdo pdo_mysql intl mysqli iconv xsl
 
