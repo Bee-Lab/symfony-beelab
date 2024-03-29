@@ -1,5 +1,5 @@
-FROM composer:2.6 AS composer
-FROM php:8.2-fpm
+FROM composer:2.7 AS composer
+FROM php:8.3-fpm
 
 ARG HOST_UID
 
@@ -14,7 +14,7 @@ RUN apt update && apt install -y --no-install-recommends zlib1g-dev libicu-dev g
 RUN docker-php-ext-install pdo pdo_mysql intl mysqli iconv xsl
 
 # Install xdebug
-RUN pecl install xdebug-3.2.2 && docker-php-ext-enable xdebug
+RUN pecl install xdebug-3.3.1 && docker-php-ext-enable xdebug
 RUN { \
       echo 'error_reporting = E_ALL'; \
       echo 'display_startup_errors = On'; \
