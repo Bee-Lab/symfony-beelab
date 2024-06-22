@@ -7,6 +7,9 @@ services:
         resource: '../src/Infrastructure'
         exclude: '../src/Infrastructure/{Kernel.php,Security/User/User.php}'
 
+    Presentation\:
+        resource: '../src/Presentation'
+
     #Application\Handler\:
     #    resource: '../src/Application/Handler'
     #    exclude: '../src/Application/Handler/*/Abstract*'

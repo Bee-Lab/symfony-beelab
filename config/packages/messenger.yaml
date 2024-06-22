@@ -12,5 +12,3 @@ framework:
         routing:
             # Route your messages to the transports
             # 'App\Message\YourMessage': async
-
-        reset_on_message: true
