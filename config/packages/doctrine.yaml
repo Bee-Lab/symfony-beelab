@@ -8,17 +8,25 @@ doctrine:
         auto_mapping: false
         validate_xml_mapping: true
         enable_lazy_ghost_objects: true
-        mappings:
-            entity:
-                type: xml
-                prefix: Domain\Entity
-                dir: '%kernel.project_dir%/config/doctrine/entity'
-                is_bundle: false
-            value_object:
-                type: xml
-                prefix: Domain\ValueObject
-                dir: '%kernel.project_dir%/config/doctrine/value_object'
-                is_bundle: false
+        controller_resolver:
+            auto_mapping: false
+# uncomment after having added at least one entity and/or VO
+#        mappings:
+#            entity:
+#                type: xml
+#                prefix: Domain\Entity
+#                dir: '%kernel.project_dir%/config/doctrine/entity'
+#                is_bundle: false
+#            value_object:
+#                type: xml
+#                prefix: Domain\ValueObject
+#                dir: '%kernel.project_dir%/config/doctrine/value_object'
+#                is_bundle: false
+
+when@dev:
+    doctrine:
+        dbal:
+            profiling_collect_backtrace: true
 
 when@test:
     doctrine:

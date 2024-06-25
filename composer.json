@@ -22,9 +22,9 @@
         "symfony/flex": "^2.4"
     },
     "flex-require": {
-        "doctrine/doctrine-bundle": "^2.11",
-        "doctrine/orm": "^2.19",
-        "ramsey/uuid-doctrine": "^2.0",
+        "doctrine/doctrine-bundle": "^2.12",
+        "doctrine/orm": "^3.2",
+        "ramsey/uuid-doctrine": "^2.1",
         "symfony/asset": "^6.4",
         "symfony/console": "^6.4",
         "symfony/form": "^6.4",
@@ -54,13 +54,14 @@
     },
     "flex-require-dev": {
         "beelab/test-bundle": "^6.0",
-        "dama/doctrine-test-bundle": "^8.0",
-        "deployer/deployer": "^7.3",
-        "doctrine/doctrine-fixtures-bundle": "^3.5",
+        "dama/doctrine-test-bundle": "^8.2",
+        "deployer/deployer": "^7.4",
+        "doctrine/doctrine-fixtures-bundle": "^3.6",
         "phpunit/phpunit": "^9.6",
         "symfony/debug-bundle": "^6.4",
-        "symfony/phpunit-bridge": "^7.0",
-        "symfony/profiler-pack": "^1.0"
+        "symfony/phpunit-bridge": "^7.1",
+        "symfony/profiler-pack": "^1.0",
+        "vincentlanglet/twig-cs-fixer": "^2.11"
     },
     "config": {
         "allow-plugins": {

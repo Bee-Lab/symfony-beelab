@@ -17,15 +17,15 @@ desc('Update database');
 task('deploy:db:update', static function (): void {
     $url = run('grep APP_DATABASE_URL /etc/nginx/sites-available/{{application}}');
     \preg_match('/(mysql:\/\/.*[^;])/', $url, $matches);
-    run('APP_DATABASE_URL=\''.$matches[0].'\' {{bin/console}} doctrine:schema:update --force --complete {{console_options}}');
+    run('APP_DATABASE_URL=\''.$matches[0].'\' {{bin/console}} doctrine:schema:update --force {{console_options}}');
 });
 
 desc('Copy remote database to local');
 task('deploy:db:from_remote_copy', static function (): void {
     $url1 = run('grep APP_DATABASE_URL /etc/nginx/sites-available/{{application}}');
-    \preg_match('/mysql:\/\/(\w+):(.+)@.+\/(.+)/', $url1, $matches);
+    \preg_match('/mysql:\/\/(\w+):(.+)@.+\/(.+);/', $url1, $matches);
     $name = '{{application}}_'.\date('YmdHis').'.sql';
-    run('mysqldump -u '.$matches[1].' -p'.$matches[2].' '.$matches[3].' > /tmp/'.$name.'; gzip /tmp/'.$name);
+    run('mysqldump -K -u'.$matches[1].' -p'.$matches[2].' '.$matches[3].' > /tmp/'.$name.' && gzip /tmp/'.$name);
     runLocally('scp {{user}}@{{hostname}}:/tmp/'.$name.'.gz .');
     $url2 = runLocally('env | grep APP_DATABASE_URL');
     \preg_match('/APP_DATABASE_URL=mysql:\/\/(\w+):(.+)@(.+)\/(.+)/', $url2, $matches);
@@ -39,7 +39,7 @@ task('deploy:db:to_remote_copy', static function (): void {
     $url1 = runLocally('env | grep APP_DATABASE_URL');
     \preg_match('/mysql:\/\/(\w+):(.+)@(.+)\/(.+)/', $url1, $matches);
     $name = '{{application}}_'.\date('YmdHis').'.sql';
-    runLocally('mysqldump -u '.$matches[1].' -p'.$matches[2].' -h'.$matches[3].' '.$matches[4].' > /tmp/'.$name.'; gzip /tmp/'.$name);
+    runLocally('mysqldump -K -u '.$matches[1].' -p'.$matches[2].' -h'.$matches[3].' '.$matches[4].' > /tmp/'.$name.'; gzip /tmp/'.$name);
     runLocally('scp /tmp/'.$name.'.gz {{user}}@{{hostname}}:/tmp/');
     $url2 = run('grep APP_DATABASE_URL /etc/nginx/sites-available/{{application}}');
     \preg_match('/APP_DATABASE_URL mysql:\/\/(\w+):(.+)@(.+)\/(.+);/', $url2, $matches);
