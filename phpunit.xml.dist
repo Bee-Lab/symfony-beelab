@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- https://phpunit.readthedocs.io/en/9.6/configuration.html -->
+<!-- https://docs.phpunit.de/en/11.2/configuration.html -->
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
-    bootstrap="vendor/autoload.php"
+    bootstrap="tests/bootstrap.php"
     colors="true"
+    displayDetailsOnTestsThatTriggerDeprecations="true"
 >
     <testsuites>
         <testsuite name="Project Test Suite">
@@ -20,17 +21,13 @@
         <env name="SYMFONY_DEPRECATIONS_HELPER" value="max[self]=0"/>
     </php>
 
-    <coverage processUncoveredFiles="true">
+    <source>
         <include>
             <directory>src</directory>
         </include>
-    </coverage>
+    </source>
 
     <extensions>
-        <extension class="DAMA\DoctrineTestBundle\PHPUnit\PHPUnitExtension"/>
+        <bootstrap class="DAMA\DoctrineTestBundle\PHPUnit\PHPUnitExtension"/>
     </extensions>
-
-    <listeners>
-        <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener"/>
-    </listeners>
 </phpunit>

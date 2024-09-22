@@ -3,13 +3,15 @@
 namespace Tests\Controller;
 
 use Beelab\TestBundle\Test\WebTestCase;
+use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Test;
 
-/**
- * @group functional
- */
+
+#[Group('functional')]
 final class DefaultControllerTest extends WebTestCase
 {
-    public function testHomepage(): void
+    #[Test]
+    public function homepage(): void
     {
         self::$client->request('GET', '/');
         self::assertResponseIsSuccessful();

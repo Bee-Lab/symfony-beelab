@@ -50,18 +50,18 @@
         "symfony/polyfill-php72": "*",
         "symfony/polyfill-php80": "*",
         "symfony/polyfill-php81": "*",
-        "symfony/polyfill-php82": "*"
+        "symfony/polyfill-php82": "*",
+        "symfony/polyfill-php83": "*"
     },
     "flex-require-dev": {
         "beelab/test-bundle": "^6.0",
         "dama/doctrine-test-bundle": "^8.2",
         "deployer/deployer": "^7.4",
         "doctrine/doctrine-fixtures-bundle": "^3.6",
-        "phpunit/phpunit": "^9.6",
+        "phpunit/phpunit": "^11.3",
         "symfony/debug-bundle": "^6.4",
-        "symfony/phpunit-bridge": "^7.1",
         "symfony/profiler-pack": "^1.0",
-        "vincentlanglet/twig-cs-fixer": "^2.11"
+        "vincentlanglet/twig-cs-fixer": "^3.0"
     },
     "config": {
         "allow-plugins": {
