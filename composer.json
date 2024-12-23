@@ -23,7 +23,7 @@
     },
     "flex-require": {
         "doctrine/doctrine-bundle": "^2.12",
-        "doctrine/orm": "^3.2",
+        "doctrine/orm": "^3.3",
         "ramsey/uuid-doctrine": "^2.1",
         "symfony/asset": "^6.4",
         "symfony/console": "^6.4",
@@ -54,11 +54,11 @@
         "symfony/polyfill-php83": "*"
     },
     "flex-require-dev": {
-        "beelab/test-bundle": "^6.0",
+        "beelab/test-bundle": "^7.0",
         "dama/doctrine-test-bundle": "^8.2",
-        "deployer/deployer": "^7.4",
+        "deployer/deployer": "^7.5",
         "doctrine/doctrine-fixtures-bundle": "^3.6",
-        "phpunit/phpunit": "^11.3",
+        "phpunit/phpunit": "^11.4",
         "symfony/debug-bundle": "^6.4",
         "symfony/profiler-pack": "^1.0",
         "vincentlanglet/twig-cs-fixer": "^3.0"
