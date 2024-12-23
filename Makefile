@@ -1,4 +1,4 @@
-EXEC = docker-compose exec
+EXEC = docker compose exec
 
 %:
 	@:
@@ -11,10 +11,10 @@ help:
 	@awk 'BEGIN {FS = ":.*##"; printf "Use: make \033[36m<target>\033[0m\n"} /^[a-zA-Z_-]+:.*?##/ { printf "  \033[36m%-10s\033[0m %s\n", $$1, $$2 } /^##@/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 5) } ' $(MAKEFILE_LIST)
 
 start:	## start docker
-	docker-compose up -d
+	docker compose up -d
 
 stop: ## stop docker
-	docker-compose stop
+	docker compose stop
 
 console: ## execute console with possible parameters
 	${EXEC} php bin/console $(call args,) --profile -v
@@ -33,7 +33,7 @@ load: ## load fixtures
 	${EXEC} -e APP_ENV=test php bin/console do:fi:lo -n
 
 test: ## execute tests
-	${EXEC} -e XDEBUG_MODE=off php bin/phpunit --stop-on-failure --stop-on-error
+	${EXEC} -e XDEBUG_MODE=off php bin/phpunit --stop-on-failure --stop-on-error --display-warnings
 
 coverage: ## execute tests with coverage
 	${EXEC} -e XDEBUG_MODE=coverage php bin/phpunit --coverage-html var/build

@@ -1,4 +1,3 @@
-version: '3.8'
 services:
     database:
         image: mysql:8.0
@@ -26,7 +25,6 @@ services:
             - APP_ENV=dev
             - APP_DEBUG=1
             - APP_DATABASE_URL=mysql://root:root@database/customize
-            - APP_TEST_DATABASE_URL=mysql://root:root@database/customize_test
             - APP_MAILER_URL=null://127.0.0.1
             - APP_SECRET=ThisIsNotReallySecretButOK
     nginx:
