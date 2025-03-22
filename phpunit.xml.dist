@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- https://docs.phpunit.de/en/11.2/configuration.html -->
+<!-- https://docs.phpunit.de/en/12.0/configuration.html -->
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
     bootstrap="tests/bootstrap.php"
@@ -16,6 +16,7 @@
     <php>
         <ini name="error_reporting" value="-1"/>
         <server name="APP_ENV" value="test" force="true"/>
+        <server name="APP_DEBUG" value="0" force="true"/>
         <server name="SHELL_VERBOSITY" value="-1"/>
         <env name="KERNEL_CLASS" value="Infrastructure\Kernel"/>
         <env name="SYMFONY_DEPRECATIONS_HELPER" value="max[self]=0"/>
@@ -29,5 +30,6 @@
 
     <extensions>
         <bootstrap class="DAMA\DoctrineTestBundle\PHPUnit\PHPUnitExtension"/>
+        <bootstrap class="Symfony\Bridge\PhpUnit\SymfonyExtension"/>
     </extensions>
 </phpunit>
