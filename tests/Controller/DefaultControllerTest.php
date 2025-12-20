@@ -6,7 +6,6 @@ use Beelab\TestBundle\Test\WebTestCase;
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Test;
 
-
 #[Group('functional')]
 final class DefaultControllerTest extends WebTestCase
 {

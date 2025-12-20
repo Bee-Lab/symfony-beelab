@@ -1,5 +1,5 @@
-FROM composer:2.8 AS composer
-FROM php:8.3-fpm
+FROM composer:2.9 AS composer
+FROM php:8.5-fpm
 
 ARG HOST_UID
 
@@ -13,9 +13,13 @@ RUN rm /etc/localtime && ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
 RUN apt update && apt install -y --no-install-recommends zlib1g-dev libicu-dev g++ vim default-mysql-client libxslt1-dev libxrender1 libxext6 libfontconfig libjpeg-dev libonig-dev nodejs npm
 RUN docker-php-ext-install pdo pdo_mysql intl mysqli iconv xsl
 
+# Install PIE
+RUN curl --output /usr/bin/pie --location https://github.com/php/pie/releases/download/1.3.1/pie.phar \
+    && chmod +x /usr/bin/pie
+
 # Install xdebug
-RUN pecl install xdebug-3.4.2 && docker-php-ext-enable xdebug
-RUN { \
+RUN pie install xdebug/xdebug && docker-php-ext-enable xdebug \
+    && { \
       echo 'error_reporting = E_ALL'; \
       echo 'display_startup_errors = On'; \
       echo 'display_errors = On'; \

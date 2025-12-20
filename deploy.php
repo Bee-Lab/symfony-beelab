@@ -12,6 +12,7 @@ set('shared_files', []);
 set('shared_dirs', ['var/log']);
 set('writable_dirs', ['var', 'var/log']);
 set('release_name', static fn (): string => \date('ymdHi'));
+set('composer_options', '--no-progress --no-interaction --no-dev --classmap-authoritative --apcu-autoloader');
 
 desc('Update database');
 task('deploy:db:update', static function (): void {

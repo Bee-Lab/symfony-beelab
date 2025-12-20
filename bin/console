@@ -1,26 +1,13 @@
 #!/usr/bin/env php
 <?php
 
-set_time_limit(0);
+use Infrastructure\Kernel;
+use Symfony\Bundle\FrameworkBundle\Console\Application;
 
-require __DIR__.'/../vendor/autoload.php';
+require_once __DIR__.'/../vendor/autoload_runtime.php';
 
-$input = new Symfony\Component\Console\Input\ArgvInput();
-if (null !== $env = $input->getParameterOption(['--env', '-e'], null, true)) {
-    putenv('APP_ENV='.$_SERVER['APP_ENV'] = $_ENV['APP_ENV'] = $env);
-}
+return static function (array $context): Application {
+    $kernel = new Kernel($context['APP_ENV'], (bool) $context['APP_DEBUG']);
 
-if ($input->hasParameterOption('--no-debug', true)) {
-    putenv('APP_DEBUG='.$_SERVER['APP_DEBUG'] = $_ENV['APP_DEBUG'] = '0');
-}
-
-if ($_SERVER['APP_DEBUG']) {
-    umask(0000);
-    if (class_exists(Symfony\Component\ErrorHandler\Debug::class)) {
-        Symfony\Component\ErrorHandler\Debug::enable();
-    }
-}
-
-$kernel = new Infrastructure\Kernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG']);
-$application = new Symfony\Bundle\FrameworkBundle\Console\Application($kernel);
-$application->run($input);
+    return new Application($kernel);
+};

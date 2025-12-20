@@ -48,7 +48,7 @@ cs: ## execute fix coding standard (requires php-cs-fixer locally installed)
 	${EXEC} -e XDEBUG_MODE=off php bin/php-cs-fixer fix -v
 
 twigcs: ## execute fix twig coding standard
-	${EXEC} -e XDEBUG_MODE=off php bin/twig-cs-fixer lint templates
+	${EXEC} -e XDEBUG_MODE=off php bin/twig-cs-fixer lint templates --fix
 
 stan: ## execute static analysis (requires phpstan locally installed)
 	${EXEC} -e XDEBUG_MODE=off php bin/phpstan analyse -v
