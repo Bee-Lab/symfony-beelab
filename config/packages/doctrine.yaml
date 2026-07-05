@@ -1,15 +1,11 @@
 doctrine:
     dbal:
         url: '%env(resolve:APP_DATABASE_URL)%'
-        server_version: '8.0.31'
+        server_version: '8.4.5'
     orm:
-        auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
         auto_mapping: false
         validate_xml_mapping: true
-        enable_lazy_ghost_objects: true
-        controller_resolver:
-            auto_mapping: false
 # uncomment after having added at least one entity and/or VO
 #        mappings:
 #            entity:
@@ -33,7 +29,6 @@ when@test:
         dbal:
             dbname_suffix: '_test'
             logging: false
-            use_savepoints: true
 
 when@prod:
     doctrine:

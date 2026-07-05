@@ -1,4 +1,4 @@
-let Encore = require("@symfony/webpack-encore");
+import Encore from "@symfony/webpack-encore";
 
 Encore
     // directory where all compiled assets will be stored
@@ -17,7 +17,10 @@ Encore
     .addStyleEntry("css/app", "./assets/scss/app.scss")
 
     // allow sass/scss files to be processed
-    .enableSassLoader()
+    // see https://github.com/twbs/bootstrap/issues/40962#issuecomment-2448291496 for silenced deprecations
+    .enableSassLoader(function (options) {
+        options.sassOptions.silenceDeprecations =  ["color-functions", "global-builtin", "if-function", "import"];
+    })
 
     // allow debugging sources in development
     .enableSourceMaps(!Encore.isProduction())
@@ -30,4 +33,4 @@ Encore
 ;
 
 // export the final configuration
-module.exports = Encore.getWebpackConfig();
+export default await Encore.getWebpackConfig();

@@ -1,21 +1,16 @@
-FROM nginx:1.25
-
-RUN apt update && apt install -y --no-install-recommends curl
+FROM phpmyadmin:5.2.3-fpm AS phpmyadmin
+FROM nginx:1-alpine
 
 # Install phpmyadmin
+COPY --from=phpmyadmin /var/www/html /usr/src/phpmyadmin
 RUN set -ex; \
-    curl -k --output phpMyAdmin.tar.gz --location https://files.phpmyadmin.net/phpMyAdmin/5.2.2/phpMyAdmin-5.2.2-all-languages.tar.gz; \
-    tar -xf phpMyAdmin.tar.gz -C /usr/src; \
-    rm -r phpMyAdmin.tar.gz; \
-    mv /usr/src/phpMyAdmin-5.2.2-all-languages /usr/src/phpmyadmin; \
-    rm -rf /usr/src/phpmyadmin/setup/ /usr/src/phpmyadmin/examples/ /usr/src/phpmyadmin/test/ /usr/src/phpmyadmin/po/ /usr/src/phpmyadmin/composer.json /usr/src/phpmyadmin/RELEASE-DATE-5.2.2; \
-sed -i "s@define('CONFIG_DIR'.*@define('CONFIG_DIR', '/usr/src/phpmyadmin/');@" /usr/src/phpmyadmin/libraries/vendor_config.php; \
+rm -rf /usr/src/phpmyadmin/doc /usr/src/phpmyadmin/composer.json /usr/src/phpmyadmin/composer.lock /usr/src/phpmyadmin/package.json /usr/src/phpmyadmin/yarn.lock; \
+find /usr/src/phpmyadmin/locale -mindepth 1 -maxdepth 1 -type d ! -name en ! -name it -exec rm -rf {} +; \
+find /usr/src/phpmyadmin/js -name '*.map' -delete; \
 cp /usr/src/phpmyadmin/config.sample.inc.php /usr/src/phpmyadmin/config.inc.php; \
+sed -i "s@'configFile' => .*@'configFile' => '/usr/src/phpmyadmin/config.inc.php',@" /usr/src/phpmyadmin/libraries/vendor_config.php; \
 sed -i "s/'localhost'/'database'/" /usr/src/phpmyadmin/config.inc.php; \
 sed -i "s/'cookie'/'config'/" /usr/src/phpmyadmin/config.inc.php; \
-echo "\$cfg['Servers'][\$i]['password'] = 'root';\n\$cfg['TempDir'] = '/tmp';" >> /usr/src/phpmyadmin/config.inc.php;
+echo "\$cfg['Servers'][\$i]['password'] = 'root';\n\$cfg['TempDir'] = '/tmp';\n\$cfg['RelationalDisplay'] = 'D';" >> /usr/src/phpmyadmin/config.inc.php;
 
 COPY nginx.conf /etc/nginx/conf.d/nginx.conf
-
-# Cleanup
-RUN apt remove --purge -y $BUILD_PACKAGES && rm -rf /var/lib/apt/lists/*
