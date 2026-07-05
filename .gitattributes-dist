@@ -1,13 +1,14 @@
 .gitkeep                    export-ignore
 /assets                     export-ignore
 /config/docker              export-ignore
-/config/packages/dev        export-ignore
-/config/packages/test       export-ignore
+/config/packages/dama_doct* export-ignore
+/config/packages/debug.yaml export-ignore
+/config/packages/web_prof*  export-ignore
 /config/routes              export-ignore
 /config/services_test.yaml  export-ignore
 /deploy.php                 export-ignore
 /docker-compose.yaml        export-ignore
-/.eslintrc.js               export-ignore
+/eslint.config.cjs          export-ignore
 /.git*                      export-ignore
 /Makefile                   export-ignore
 /package*.json              export-ignore
@@ -16,5 +17,6 @@
 /phpunit.xml.dist           export-ignore
 /README.md                  export-ignore
 /.stylelintrc.json          export-ignore
+/symfony.lock               export-ignore
 /tests                      export-ignore
 /webpack.config.js          export-ignore

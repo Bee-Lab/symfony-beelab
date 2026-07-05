@@ -1,6 +1,6 @@
-import Alert from "bootstrap/js/src/alert";
-import Collapse from "bootstrap/js/src/collapse";
-import Dropdown from "bootstrap/js/src/dropdown";
+import Alert from "bootstrap/js/src/alert.js";
+import Collapse from "bootstrap/js/src/collapse.js";
+import Dropdown from "bootstrap/js/src/dropdown.js";
 
 // alert
 let alerts = document.querySelectorAll("button.btn-close");

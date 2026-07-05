@@ -8,6 +8,8 @@ services:
             context: config/docker/php-fpm
             args:
                 HOST_UID: 1000
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
         volumes:
             - ./:/user/customize:delegated
             - $HOME/.bashrc:/user/.bashrc:delegated

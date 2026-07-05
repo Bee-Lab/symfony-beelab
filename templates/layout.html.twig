@@ -16,18 +16,18 @@
         {% endblock %}
     </head>
     <body class="d-flex flex-column h-100">
-        <main role="main" class="flex-shrink-0">
+        <main class="flex-shrink-0">
             <nav class="navbar navbar-expand-md navbar-light bg-light">
                 <div class="container">
                     <a href="{{ path('homepage') }}" class="navbar-brand" title="home">
                         <i class="fas fa-home" aria-label="home"></i>
                     </a>
-                    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                         <span></span>
                         <span></span>
                         <span></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="collapse navbar-collapse" id="navbar-collapse">
                         {# knp_menu_render('menu') #}
                     </div>
                 </div>

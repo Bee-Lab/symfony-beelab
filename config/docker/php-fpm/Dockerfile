@@ -1,21 +1,22 @@
-FROM composer:2.9 AS composer
+FROM composer:2.10 AS composer
+FROM node:24-slim AS node
+FROM phpmyadmin:5.2.3-fpm AS phpmyadmin
 FROM php:8.5-fpm
 
 ARG HOST_UID
 
-# Add system packages
-RUN apt update && apt install -y --no-install-recommends git unzip ssh
-
 # Set timezone
 RUN rm /etc/localtime && ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
 
-# Install deps
-RUN apt update && apt install -y --no-install-recommends zlib1g-dev libicu-dev g++ vim default-mysql-client libxslt1-dev libxrender1 libxext6 libfontconfig libjpeg-dev libonig-dev nodejs npm
-RUN docker-php-ext-install pdo pdo_mysql intl mysqli iconv xsl
+# Add system packages and install deps
+RUN apt update && apt install -y --no-install-recommends \
+      git unzip ssh \
+      zlib1g-dev libicu-dev vim default-mysql-client libonig-dev bash-completion \
+    && rm -rf /var/lib/apt/lists/*
+RUN docker-php-ext-install intl ctype mbstring pdo pdo_mysql
 
 # Install PIE
-RUN curl --output /usr/bin/pie --location https://github.com/php/pie/releases/download/1.3.1/pie.phar \
-    && chmod +x /usr/bin/pie
+COPY --from=ghcr.io/php/pie:bin /pie /usr/local/bin/pie
 
 # Install xdebug
 RUN pie install xdebug/xdebug && docker-php-ext-enable xdebug \
@@ -24,7 +25,7 @@ RUN pie install xdebug/xdebug && docker-php-ext-enable xdebug \
       echo 'display_startup_errors = On'; \
       echo 'display_errors = On'; \
       echo 'xdebug.mode=debug'; \
-      echo 'xdebug.discover_client_host=true'; \
+      echo 'xdebug.client_host=host.docker.internal'; \
       echo 'xdebug.file_link_format=xdebug://%f@%l'; \
     } >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
@@ -43,24 +44,27 @@ RUN { \
 # Install Composer
 COPY --from=composer /usr/bin/composer /usr/local/bin/composer
 
+# Install Node
+COPY --from=node /usr/local/bin /usr/local/bin
+COPY --from=node /usr/local/lib/node_modules /usr/local/lib/node_modules
+
+# Configure completion
+COPY sf_completion /etc/bash_completion.d/symfony
+
 # Install phpmyadmin
+COPY --from=phpmyadmin /var/www/html /usr/src/phpmyadmin
 RUN set -ex; \
-    curl -k --output phpMyAdmin.tar.xz --location https://files.phpmyadmin.net/phpMyAdmin/5.2.2/phpMyAdmin-5.2.2-all-languages.tar.xz; \
-    tar -xf phpMyAdmin.tar.xz -C /usr/src; \
-    rm -r phpMyAdmin.tar.xz; \
-    mv /usr/src/phpMyAdmin-5.2.2-all-languages /usr/src/phpmyadmin; \
-    rm -rf /usr/src/phpmyadmin/setup/ /usr/src/phpmyadmin/examples/ /usr/src/phpmyadmin/test/ /usr/src/phpmyadmin/po/ /usr/src/phpmyadmin/composer.json /usr/src/phpmyadmin/RELEASE-DATE-5.2.2; \
-sed -i "s@define('CONFIG_DIR'.*@define('CONFIG_DIR', '/usr/src/phpmyadmin/');@" /usr/src/phpmyadmin/libraries/vendor_config.php; \
+rm -rf /usr/src/phpmyadmin/doc /usr/src/phpmyadmin/composer.json /usr/src/phpmyadmin/composer.lock /usr/src/phpmyadmin/package.json /usr/src/phpmyadmin/yarn.lock; \
+find /usr/src/phpmyadmin/locale -mindepth 1 -maxdepth 1 -type d ! -name en ! -name it -exec rm -rf {} +; \
+find /usr/src/phpmyadmin/js -name '*.map' -delete; \
 cp /usr/src/phpmyadmin/config.sample.inc.php /usr/src/phpmyadmin/config.inc.php; \
+sed -i "s@'configFile' => .*@'configFile' => '/usr/src/phpmyadmin/config.inc.php',@" /usr/src/phpmyadmin/libraries/vendor_config.php; \
 sed -i "s/'localhost'/'database'/" /usr/src/phpmyadmin/config.inc.php; \
 sed -i "s/'cookie'/'config'/" /usr/src/phpmyadmin/config.inc.php; \
 echo "\$cfg['Servers'][\$i]['password'] = 'root';\n\$cfg['TempDir'] = '/tmp';\n\$cfg['RelationalDisplay'] = 'D';" >> /usr/src/phpmyadmin/config.inc.php;
 
-# Cleanup
-RUN apt remove --purge -y $BUILD_PACKAGES && rm -rf /var/lib/apt/lists/*
-
 # Configure user
-RUN mkdir /user && useradd -u $HOST_UID -d /user -s /bin/bash user && chown user /user && chown -R user /usr/src/phpmyadmin
+RUN mkdir /user && useradd -u $HOST_UID -d /user -s /bin/bash user && chown user /user
 USER user
 RUN git config --global core.excludesfile ~/.gitignore
 

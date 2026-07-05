@@ -6,7 +6,7 @@ $finder = new PhpCsFixer\Finder()
 ;
 
 return new PhpCsFixer\Config()
-    ->setParallelConfig(PhpCsFixer\Runner\Parallel\ParallelConfigFactory::detect())
+    ->setCacheFile(__DIR__.'/var/cache/.php-cs-fixer.cache')
     ->setRiskyAllowed(true)
     ->setRules([
         '@Symfony' => true,
@@ -18,7 +18,7 @@ return new PhpCsFixer\Config()
         'native_function_invocation' => ['include' => ['@internal']],
         'method_chaining_indentation' => true,
         'fopen_flags' => ['b_mode' => true],
-        'php_unit_test_case_static_method_calls' => ['call_type' => 'self'],
+        'php_unit_test_case_static_method_calls' => ['call_type' => 'self', 'methods' => ['once' => 'this']],
         'trailing_comma_in_multiline' => ['elements' => ['arguments', 'arrays', 'match', 'parameters']],
     ])
     ->setFinder($finder)
